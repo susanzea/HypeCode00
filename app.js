@@ -12,6 +12,8 @@ mongoose
   .then(() => console.log("Connected to MongoDB successfully"))
   .catch(err => console.log(err));
 
+app.use(passport.initialize());
+require('./config/passport')(passport);
 
 app.get("/", (req, res) => res.send("Hello HypeCoders"));
 

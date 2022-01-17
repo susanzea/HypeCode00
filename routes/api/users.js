@@ -4,16 +4,24 @@ const bcrypt = require('bcryptjs')
 const User = require('../../models/User');
 const jwt = require('jsonwebtoken')
 const keys = require('../../config/keys');
-const res = require("express/lib/response");
+const validateLoginInput = require('../../validation/login')
+const validateSignupInput = require('../../validation/signup');
+const passport = require('passport')
 
 router.get("/test", (request,response) => response.json({ msg: " Test Route."}))
 
 router.post('/signup', (request,response) => {
-    // debugger
+    const { errors, isValid } = validateSignupInput(request.body);
+
+    if (!isValid) {
+        return response.status(400).json(errors)
+    }
+
     User.findOne({ email: request.body.email })
         .then( user => {
             if (user) {
-                return response.status(400).json({ email: "An account has already been associated with this email."})  
+                errors.email = 'There is already an account associated with this email'
+                return res.status(400).json(errors);
             } else {
                 const newUser = new User({
                     email: request.body.email,
@@ -35,6 +43,12 @@ router.post('/signup', (request,response) => {
 })
 
 router.post('/login', (request,response) => {
+    const {errors, isValid} = validateLoginInput(request.body)
+
+    if(!isValid) {
+        return res.status(400).json(errors);
+    }
+
     const email = request.body.email;
     const password = request.body.password;
 
@@ -64,5 +78,10 @@ router.post('/login', (request,response) => {
             })
     })
 })
+
+router.get('/current', passport.authenticate('jwt', {session: false}), (req, res) => {
+  res.json({msg: 'Success'});
+})
+
 
 module.exports = router

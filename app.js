@@ -2,6 +2,9 @@ const express = require("express");
 const app = express();
 const mongoose = require('mongoose');
 const db = require('./config/keys').mongoURI;
+const bodyParser = require('body-parser');
+const passport =require('passport');
+const users = require("./routes/api/users")
 
 
 mongoose
@@ -11,6 +14,11 @@ mongoose
 
 
 app.get("/", (req, res) => res.send("Hello HypeCoders"));
+
+app.use(bodyParser.urlencoded({ extended: false}))
+app.use(bodyParser.json());
+
+app.use("/api/users",users)
 
 const port = process.env.PORT || 5000;
 

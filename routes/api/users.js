@@ -1,0 +1,68 @@
+const express = require("express");
+const router = express.Router();
+const bcrypt = require('bcryptjs')
+const User = require('../../models/User');
+const jwt = require('jsonwebtoken')
+const keys = require('../../config/keys');
+const res = require("express/lib/response");
+
+router.get("/test", (request,response) => response.json({ msg: " Test Route."}))
+
+router.post('/signup', (request,response) => {
+    // debugger
+    User.findOne({ email: request.body.email })
+        .then( user => {
+            if (user) {
+                return response.status(400).json({ email: "An account has already been associated with this email."})  
+            } else {
+                const newUser = new User({
+                    email: request.body.email,
+                    password: request.body.password,
+                    first_name: request.body.first_name
+            })
+
+            bcrypt.genSalt(10, (error, salt) => {
+                bcrypt.hash(newUser.password, salt, (error, hash) => {
+                    if (error) throw error;
+                    newUser.password = hash;
+                    newUser.save()
+                        .then(user => response.json(user))
+                        .catch(error => console.log(error));
+                })
+            })
+        }
+    })
+})
+
+router.post('/login', (request,response) => {
+    const email = request.body.email;
+    const password = request.body.password;
+
+    User.findOne({email})
+        .then(user => {
+            if (!user) {
+                return response.status(404).json({ email: `There is no account associated with ${email}! Please sign up!`})
+            }
+
+            bcrypt.compare(password, user.password)
+                .then( authorized =>  {
+                    if (authorized) {
+                        const payload = {id: user.id, email: user.email};
+                        jwt.sign(
+                            payload,
+                            keys.secretOrKey,
+                            {expiresIn: 3600},
+                            (error, token) => {
+                                response.json({
+                                    success: true,
+                                    token: 'Bearer ' + token
+                                })
+                            });
+                    } else {
+                        return response.status(400).json({password: 'Incorrect password!'});
+                }
+            })
+    })
+})
+
+module.exports = router

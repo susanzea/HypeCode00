@@ -21,7 +21,7 @@ router.post('/signup', (request,response) => {
         .then( user => {
             if (user) {
                 errors.email = 'There is already an account associated with this email'
-                return res.status(400).json(errors);
+                return response.status(400).json(errors);
             } else {
                 const newUser = new User({
                     email: request.body.email,
@@ -49,10 +49,10 @@ router.post('/login', (request, response) => {
         return response.status(400).json(errors);
     }
 
-    const email = request.body.email;
+    // const email = request.body.email;
     const password = request.body.password;
     debugger
-    User.findOne(email)
+    User.findOne({ email: request.body.email })
         .then(user => {
             if (!user) {
                 return response.status(404).json({ email: `There is no account associated with ${email}! Please sign up!`})
@@ -61,7 +61,7 @@ router.post('/login', (request, response) => {
             bcrypt.compare(password, user.password)
                 .then( authorized =>  {
                     if (authorized) {
-                        const payload = {id: user.id, email: user.email};
+                        const payload = {id: user.id, email: user.email, first_name: user.first_name};
                         jwt.sign(
                             payload,
                             keys.secretOrKey,

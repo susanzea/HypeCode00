@@ -1,6 +1,4 @@
 import React from "react";
-import { login } from "../../util/session_api_util";
-// import { withRouter } from "react-router-dom";
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -24,21 +22,41 @@ class SignupForm extends React.Component {
     })
   }
 
-  componentWillReceiveProps (nextProps) {
-    if (nextProps.signedIn) { 
-      this.props.login({email: this.state.email, password: this.state.password})
-    }
+  // componentWillReceiveProps (nextProps) {
+  //   if (nextProps.signedIn) { 
+  //     this.props.login({email: this.state.email, password: this.state.password})
+  //   }
+  // }
+
+  handleSignin(user) {
+    
   }
 
   handleSubmit(e) {
     e.preventDefault();
     // console.log(this.state);
+   
     this.props.signup({
       email: this.state.email,
       first_name: this.state.first_name,
       password: this.state.password,
       password2: this.state.password2
+    }).then(response => {
+      if (response.errors) {
+        console.log(response.errors)
+      } else {
+        this.props.login({
+          email: this.state.email,
+          password: this.state.password
+        })
+      }
     })
+
+    // .then(
+    //   this.props.login({
+    //   email: this.state.email,
+    //   password: this.state.password
+    // }))
   }
 
   render() {

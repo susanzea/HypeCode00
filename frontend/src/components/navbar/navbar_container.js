@@ -5,7 +5,7 @@ import NavBar from './navbar';
 const mSTP = state => {
   return ({
     loggedIn: state.session.isAuthenticated,
-     user: state.session.user
+    currentUser: state.session.currentUser
   })
 
 }

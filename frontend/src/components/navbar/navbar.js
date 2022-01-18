@@ -20,7 +20,7 @@ class NavBar extends React.Component {
       return (
         <div className="nav-right">
           <div className="nav-inner-right">
-            Welcome back, {this.props.user.first_name}
+            Welcome back, {this.props.currentUser.first_name}
           </div>
           <div className="nav-inner-button">
             <button onClick={this.logoutUser}> Log me out </button>

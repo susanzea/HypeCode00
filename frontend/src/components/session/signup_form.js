@@ -43,7 +43,7 @@ class SignupForm extends React.Component {
       password2: this.state.password2
     }).then(response => {
       if (response.errors) {
-        console.log(response.errors)
+        return null
       } else {
         this.props.login({
           email: this.state.email,

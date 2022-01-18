@@ -15,6 +15,12 @@ class LoginForm extends React.Component {
     this.clearedErrors = false;
   }
 
+  componentWillUnmount() {
+    this.setState({
+      errors: {}
+    })
+  }
+
   handleInput(e) {
     this.setState({
       [e.target.name]: e.target.value
@@ -24,7 +30,6 @@ class LoginForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    console.log(this.state);
     this.props.login({
       email: this.state.email,
       password: this.state.password

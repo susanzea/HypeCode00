@@ -16,6 +16,10 @@ const UserSchema = new Schema({
     first_name: {
         type: String,
         required: true
+    },
+    bio: {
+        type: String,
+        default: "No bio supplied yet!"
     }
 },
     {

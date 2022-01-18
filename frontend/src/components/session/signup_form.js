@@ -16,6 +16,15 @@ class SignupForm extends React.Component {
     this.clearedErrors = false;
   }
 
+  componentWillUnmount() {
+    this.props.clearErrors();
+  }
+
+  componentDidMount() {
+    this.props.clearErrors();
+  }
+
+
   handleInput(e) {
     this.setState({
       [e.target.name]: e.target.value
@@ -28,9 +37,9 @@ class SignupForm extends React.Component {
   //   }
   // }
 
-  handleSignin(user) {
+  // handleSignin(user) {
     
-  }
+  // }
 
   handleSubmit(e) {
     e.preventDefault();

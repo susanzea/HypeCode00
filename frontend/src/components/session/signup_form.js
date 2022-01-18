@@ -1,4 +1,5 @@
 import React from "react";
+import { login } from "../../util/session_api_util";
 // import { withRouter } from "react-router-dom";
 
 class SignupForm extends React.Component {
@@ -23,24 +24,20 @@ class SignupForm extends React.Component {
     })
   }
 
+  componentWillReceiveProps (nextProps) {
+    if (nextProps.signedIn) { 
+      this.props.login({email: this.state.email, password: this.state.password})
+    }
+  }
+
   handleSubmit(e) {
     e.preventDefault();
-    // let user = {
-    //   email: this.state.email,
-    //   first_name: this.state.first_name,
-    //   password: this.state.password,
-    //   password2: this.state.password2
-    // }
-    // this.props.signup(user, this.props.history);
-    console.log(this.state);
+    // console.log(this.state);
     this.props.signup({
       email: this.state.email,
       first_name: this.state.first_name,
       password: this.state.password,
       password2: this.state.password2
-    })
-    this.props.login({
-
     })
   }
 
@@ -54,7 +51,9 @@ class SignupForm extends React.Component {
               name="email"
               type="text"
               value={this.state.email}
-              onChange={this.handleInput} />
+              onChange={this.handleInput} 
+              required
+              />
           </div>
 
           <div>
@@ -63,6 +62,7 @@ class SignupForm extends React.Component {
               name="first_name"
               type="text"
               value={this.state.first_name}
+              required
               onChange={this.handleInput} />
           </div>
 

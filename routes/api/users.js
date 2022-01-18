@@ -42,17 +42,17 @@ router.post('/signup', (request,response) => {
     })
 })
 
-router.post('/login', (request,response) => {
+router.post('/login', (request, response) => {
     const {errors, isValid} = validateLoginInput(request.body)
 
     if(!isValid) {
-        return res.status(400).json(errors);
+        return response.status(400).json(errors);
     }
 
     const email = request.body.email;
     const password = request.body.password;
-
-    User.findOne({email})
+    debugger
+    User.findOne(email)
         .then(user => {
             if (!user) {
                 return response.status(404).json({ email: `There is no account associated with ${email}! Please sign up!`})
@@ -80,7 +80,10 @@ router.post('/login', (request,response) => {
 })
 
 router.get('/current', passport.authenticate('jwt', {session: false}), (req, res) => {
-  res.json({msg: 'Success'});
+  res.json({id: req.user.id,
+            first_name: req.user.first_name,
+            email: req.user.email
+        });
 })
 
 

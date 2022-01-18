@@ -5,6 +5,7 @@ import LoginForm from './login_form';
 const mSTP = (state) => {
   return {
     loggedIn: state.session.isSignedIn,
+    errors: state.errors.session
   }
 }
 

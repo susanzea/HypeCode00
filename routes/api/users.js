@@ -51,7 +51,7 @@ router.post('/login', (request, response) => {
 
     // const email = request.body.email;
     const password = request.body.password;
-    debugger
+    // debugger
     User.findOne({ email: request.body.email })
         .then(user => {
             if (!user) {
@@ -73,7 +73,7 @@ router.post('/login', (request, response) => {
                                 })
                             });
                     } else {
-                        return response.status(400).json({password: 'Incorrect password!'});
+                        return response.status(400).json({password: 'Invalid email and password combination!'});
                 }
             })
     })

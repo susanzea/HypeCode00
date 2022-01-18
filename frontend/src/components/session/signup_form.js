@@ -44,6 +44,14 @@ class SignupForm extends React.Component {
   render() {
     return (
       <div>
+        <h1> Sign Up </h1>
+          <ul className="errors">
+            {Object.keys(this.props.errors).map((error,i) => ( 
+              <li key={`error-${i}`}>
+                {this.props.errors[error]}
+              </li>
+            ))}
+          </ul>
         <form onSubmit={this.handleSubmit}>
           <div>
             <label>Email</label>

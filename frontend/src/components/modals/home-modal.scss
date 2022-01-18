@@ -1,11 +1,17 @@
 
-$orange: #CB5223;
-$purple: #373697;
-$pink: #B7336E;
-$blue: #027BA6;
-$green: #017951;
+$blue: #31CBFD;
+$pink: #F861FF;
+$bl: #1620E9;
+$orange: #FBA602;
+$lblue:  #56C9FF;
+$red: #F82F40;
+$green: #46F200;
 
-
+$b1:#414a4c;
+$b2: #3b444b;
+$b3: #353839;
+$b4: #232b2b;
+$b5: #0e1111;
 
 .home-modal--wrap {
   position: absolute;
@@ -24,7 +30,7 @@ $green: #017951;
 .home-modal {
 
   display: flex;
-  background: $green;
+  background: $b1;
   flex-direction: row;
   height: 70vh;
   width: 50vw;

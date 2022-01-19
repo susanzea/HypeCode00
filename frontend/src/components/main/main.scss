@@ -1,0 +1,32 @@
+
+$blue: #31CBFD;
+$pink: #F861FF;
+$bl: #1620E9;
+$orange: #FBA602;
+$lblue:  #56C9FF;
+$red: #F82F40;
+$green: #46F200;
+
+$b1:#414a4c;
+$b2: #3b444b;
+$b3: #353839;
+$b4: #232b2b;
+$b5: #0e1111;
+
+.main-page {
+  display: flex;
+  flex-direction: column;
+  background-color: $b1;
+  width: 100vw;
+  height: 100vh;
+}
+
+.button-green {
+  background-color: $green;
+  color: $b1;
+  border: none;
+  cursor: pointer;
+  height: 22px;
+  width: fit-content;
+  font-weight: bold;
+}

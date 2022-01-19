@@ -35,7 +35,7 @@
 }
 
 .hclogo {
-    font-size: 38px;
+    font-size: 44px;
     background: -webkit-linear-gradient(#cbad6d, #d53369);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -44,6 +44,7 @@
     // border: 3px solid currentColor;
     margin-left: 3%;
     flex: 4;
+    font-weight: bolder;
 }
 
 .hclogo > a:hover {

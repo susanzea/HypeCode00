@@ -25,6 +25,7 @@ class Editor extends React.Component {
         this.handleChange = this.handleChange.bind(this);
         this.append = this.append.bind(this);
         this.setEditor = this.setEditor.bind(this)
+        this.appendVideo = this.appendVideo.bind(this);
     }
 
 
@@ -37,8 +38,8 @@ class Editor extends React.Component {
         this.props.onChange(value);
     }
 
-
     append() {
+
         var doc = this.state.editor.getDoc();
         var cursor = doc.getCursor(); // gets the line number in the cursor position
         var line = doc.getLine(cursor.line); // get the line contents
@@ -51,14 +52,31 @@ class Editor extends React.Component {
     }
 
 
+    appendVideo(e) {
+        const content = e.target.childNodes[1].innerText.slice(-11)
+        debugger
+        var doc = this.state.editor.getDoc();
+        var cursor = doc.getCursor(); // gets the line number in the cursor position
+        var line = doc.getLine(cursor.line); // get the line contents
+        console.log(line)
+        var pos = { // create a new object to avoid mutation of the original selection
+            line: cursor.line,
+            ch: line.length// set the character position to the end of the line
+        }
+        doc.replaceRange(`<iframe width="420" height="315" src="https://www.youtube.com/embed/${content}"></iframe>\n`, pos); // adds a new line
+    }
+
+
     render () {
-            const {
+        const {
             language,
             displayName,
             value,
             onChange
         } = this.props
 
+        const videoOpen = "<video> src='"
+        const videoClose = "'</video>"
 
 
         return (
@@ -66,6 +84,19 @@ class Editor extends React.Component {
             <div className='editor-title'>
                 {displayName}
             </div>
+
+            <section>
+                <div className="add-tag" id="video">
+                    <button className='tag-button' id="show-video-form">video</button>
+                    <form onSubmit={this.appendVideo} className='tag-form' id="video-form">
+                        {videoOpen}<span contentEditable="true" className="tag-input" id="video-input" placeholder='insert video link...'></span>{videoClose}
+                        <button type="submit">add tag</button>
+                        <button id="create-video-code">x</button>
+                    </form>
+                </div>
+                <br/>
+
+            </section>
 
             <ControlledEditor 
                 onBeforeChange={this.handleChange}

@@ -1,0 +1,15 @@
+.add-tag {
+    border: 2px solid rgb(238, 234, 234);
+}
+
+.tag-form {
+    border: 2px solid lightblue;
+}
+
+#video-input {
+    display: inline-block;
+    min-width: 10px;
+    max-width: 50px;
+    border: 1px solid gray;
+    border-radius: 3px;
+}

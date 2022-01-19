@@ -1,4 +1,5 @@
-import './index.css'
+import './styles/index.css'
+import './styles/tag_buttons.css'
 import { colorize } from './editor_helpers';
 import React, { useState, UseEffect, useEffect } from 'react';
 import Editor from './Editor';
@@ -19,7 +20,7 @@ function App() {
           <body>${html}</body>
         </html>
       `)
-    }, 250)
+    }, 50)
 
     return () => clearTimeout(timeout)
   }, [html])
@@ -50,36 +51,39 @@ function App() {
    setHtml(prev => prev + '<h1> </h1> \n')
   }
 
-  // const getPos = () => {
-  //   document.getElementsByClassName("react-codemirror2 html-editor")
-  //   .onclick = function() {
-  //       console.log("clicked")
-  //   }
-  // }
-
   const clear = () => {
     setHtml('')
   }
 
+  const videoOpen = "<video> src='"
+  const videoClose = "'</video>"
+
+  const handleVideoSubmit = (e) => {
+    console.log("video")
+  }
+
   return (
     <div id="coding-space">
-      <div className='code-buttons'>
+      <section className='code-buttons'>
         <button onClick={handleInput}>ADD CODE</button>
+        <br/><br/>
 
-        <div id="video">
-          <button className='code-button' id="show-video-form">video</button>
-          <form className='code-form'>
-            <input id="video-input"></input>
+        {/* <div className="add-tag" id="video">
+          <button className='tag-button' id="show-video-form">video</button>
+          <form onSubmit={handleVideoSubmit} className='tag-form' id="video-form">
+            {videoOpen}<span contentEditable="true" className="tag-input" id="video-input" placeholder='insert video link...'></span>{videoClose}
+            <button type="submit">add tag</button>
             <button id="create-video-code">x</button>
           </form>
         </div>
+        <br/> */}
         
         
         <button className='code-inputter'>title</button>
         <button className='code-inputter'>list</button>
         <button className='code-inputter'>paragraph</button>
         <button className='code-inputter'>image</button>
-      </div>
+      </section>
       <div className="pane right-pane">
         <Editor 
           language="xml" 

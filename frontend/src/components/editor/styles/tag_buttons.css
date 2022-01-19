@@ -13,3 +13,15 @@
     border: 1px solid gray;
     border-radius: 3px;
 }
+
+#video-form {
+    display: none;
+}
+
+#image-form {
+    display: none;
+}
+
+#paragraph-form {
+    display: none;
+}

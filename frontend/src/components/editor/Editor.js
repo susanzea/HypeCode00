@@ -35,6 +35,7 @@ class Editor extends React.Component {
         this.toggleIframe = this.toggleIframe.bind(this);
         this.toggleImage = this.toggleImage.bind(this);
         this.toggleParagraph = this.toggleParagraph.bind(this);
+        this.toggleHeader = this.toggleHeader.bind(this);
     }
 
 
@@ -199,6 +200,17 @@ class Editor extends React.Component {
         }
     }
 
+    toggleHeader(e) {
+        e.preventDefault();
+        if (e.target.id === "show-header-options") {
+            $(e.target).hide();
+            $(e.target).next().show();
+        } else if (e.target.id === "hide-paragraph-form") {
+            $(e.target.parentElement).siblings().show();
+            $(e.target.parentElement).hide();
+        }
+    }
+
 
     render () {
         const {
@@ -258,10 +270,11 @@ class Editor extends React.Component {
                 <br/>
 
                 <div id="headers">
+                    <button id="show-header-options">header</button>
                     <div>
                         <button className='tag-button' id="show-headerOne-form">header large</button>
-                        <button></button>
-                        <button></button>
+                        <button className='tag-button' id="show-headerTwo-form">header medium</button>
+                        <button className='tag-button' id="show-headerThree-form">header large</button>
                     </div>
 
                     <div className="add-tag" id="headerOne">
@@ -274,7 +287,6 @@ class Editor extends React.Component {
                     <br/>
 
                     <div className="add-tag" id="headerTwo">
-                        <button className='tag-button' id="show-headerTwo-form">header medium</button>
                         <form onSubmit={this.appendHeaderTwo} className='tag-form' id="headerTwo-form">
                             {headerTwoOpen}<span contentEditable="true" className="tag-input" id="headerTwo-input" placeholder='insert headerTwo link...'></span>{headerTwoClose}
                             <button type="submit">add tag</button>
@@ -284,7 +296,6 @@ class Editor extends React.Component {
                     <br/>
 
                     <div className="add-tag" id="headerThree">
-                        <button className='tag-button' id="show-headerThree-form">header large</button>
                         <form onSubmit={this.appendHeaderThree} className='tag-form' id="headerThree-form">
                             {headerThreeOpen}<span contentEditable="true" className="tag-input" id="headerThree-input" placeholder='insert headerThree link...'></span>{headerThreeClose}
                             <button type="submit">add tag</button>

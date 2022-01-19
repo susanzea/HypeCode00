@@ -13,6 +13,12 @@ $b3: #353839;
 $b4: #232b2b;
 $b5: #0e1111;
 
+
+.wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .home-modal--wrap {
   position: absolute;
   display: flex;
@@ -21,7 +27,7 @@ $b5: #0e1111;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 1000;
+  z-index: 1;
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.4);
@@ -43,6 +49,7 @@ $b5: #0e1111;
   color: gray;
   font-size: 20px;
   cursor: pointer;
+  z-index: 2222;
   
 }
 
@@ -56,4 +63,17 @@ $b5: #0e1111;
   color: black;
 }
 
+.title-text {
+  color: $orange;
+  font-size: 66px;
 
+}
+
+.random-style {
+  color: $orange;
+}
+.rand-block {
+  display: flex;
+  flex-direction: column;
+  height: 70vh;
+}

@@ -1,0 +1,60 @@
+.navbar{ 
+    display: flex;
+    // border: red 2px solid;
+    align-items: center;
+    justify-content: space-evenly;
+    // background-color: lavender;
+    // background-color: #414a4c;
+    border-bottom: blue 2px solid;
+    padding-bottom: 10px;
+    box-shadow: 0 6px 2px -2px cyan;
+}
+
+.nav-right{
+    flex: 1;
+    justify-content: center;
+    margin-right: 3%;
+    display: flex;
+    width: 100%;
+    gap: 10px;
+    text-decoration: none;
+}
+
+
+.nav-inner-right{
+    justify-content: center;
+    justify-self: center;
+}
+
+.nav-inner-button{
+    justify-content: center;
+    display: flex;
+}
+.nav-inner-button > a{
+    text-decoration: none;
+}
+
+.hclogo {
+    font-size: 38px;
+    background: -webkit-linear-gradient(#cbad6d, #d53369);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 0.75em currentColor;
+    // box-shadow: 0 0 3rem 0em currentColor;
+    // border: 3px solid currentColor;
+    margin-left: 3%;
+    flex: 4;
+}
+
+.hclogo > a:hover {
+    color: wheat;
+    background-position: 0 100%;
+}
+
+#menulogged{
+    max-width: 120px;
+}
+#login-button,
+#signup-button{
+    min-width: 140px;
+}

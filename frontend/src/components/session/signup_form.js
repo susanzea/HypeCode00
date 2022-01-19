@@ -70,7 +70,7 @@ class SignupForm extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="session">
         <h1> Sign Up </h1>
           <ul className="errors">
             {Object.keys(this.props.errors).map((error,i) => ( 
@@ -79,43 +79,47 @@ class SignupForm extends React.Component {
               </li>
             ))}
           </ul>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} className="session-form">
           <div>
-            <label>Email</label>
-            <input
+            {/* <label>Email</label> */}
+            <input className="input"
               name="email"
               type="text"
               value={this.state.email}
               onChange={this.handleInput} 
+              placeholder="Email"
               required
               />
           </div>
 
           <div>
-            <label>Name</label>
-            <input
+            {/* <label>Name</label> */}
+            <input className="input"
               name="first_name"
               type="text"
               value={this.state.first_name}
               required
+              placeholder="Name"
               onChange={this.handleInput} />
           </div>
 
           <div>
-            <label>Password</label>
-            <input
+            {/* <label>Password</label> */}
+            <input className="input"
               name="password"
               type="password"
+              placeholder="Password"
               value={this.state.password}
               onChange={this.handleInput} />
           </div>
 
           <div>
-            <label>Confirm Password</label>
-            <input
+            {/* <label>Confirm Password</label> */}
+            <input className="input"
               name="password2"
               type="password"
               value={this.state.password2}
+              placeholder="Confirm Password"
               onChange={this.handleInput} />
           </div>
           <button>Create Account</button>

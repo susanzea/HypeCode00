@@ -37,7 +37,11 @@ $b5: #0e1111;
 
   display: flex;
   background: $b1;
+<<<<<<< HEAD
   flex-direction: column;
+=======
+  flex-direction: row;
+>>>>>>> cc59470 ('merge')
   height: 70vh;
   width: 50vw;
   z-index: 2222;
@@ -66,6 +70,7 @@ $b5: #0e1111;
 .title-text {
   color: $orange;
   font-size: 66px;
+<<<<<<< HEAD
 
 }
 
@@ -96,4 +101,16 @@ $b5: #0e1111;
   padding-left: 10px;
   padding-right: 10px;
   border-radius: 20px;
+=======
+
+}
+
+.random-style {
+  color: $orange;
+}
+.rand-block {
+  display: flex;
+  flex-direction: column;
+  height: 70vh;
+>>>>>>> cc59470 ('merge')
 }

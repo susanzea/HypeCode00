@@ -1,6 +1,8 @@
 import React from "react";
 import HomeModal from "../modals/home_modal"
 import "./main.scss"
+import Editor from '../editor/App'
+
 class MainPage extends React.Component {
   constructor(props) {
     super(props);
@@ -25,6 +27,8 @@ class MainPage extends React.Component {
       <div className="main-page">
         <HomeModal showModal={showHome} exitModal={this.toggleHomeModal}/>
         <button onClick={this.toggleHomeModal} className="button-green">toggle modal</button>
+        <button onClick={this.toggleHomeModal}>toggle modal</button>
+        <Editor />
       </div>
     )
   }

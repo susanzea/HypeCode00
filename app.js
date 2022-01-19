@@ -6,6 +6,7 @@ const db = require('./config/keys').mongoURI;
 const bodyParser = require('body-parser');
 const passport =require('passport');
 const users = require("./routes/api/users")
+const files = require("./routes/api/files")
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('frontend/build'));
@@ -28,6 +29,7 @@ app.use(bodyParser.urlencoded({ extended: false}))
 app.use(bodyParser.json());
 
 app.use("/api/users",users)
+app.use("/api/files", files)
 
 const port = process.env.PORT || 5000;
 

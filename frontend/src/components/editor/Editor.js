@@ -12,7 +12,12 @@ import 'codemirror/mode/css/css'
 import { Controlled as ControlledEditor } from 'react-codemirror2';
 import {highlightActiveLine} from "@codemirror/view"
 import keyword from './keywords';
+import { connect } from 'react-redux'
+import { fetchFile, createFile } from '../../actions/file_actions';
+
+
 var $ = require("jquery");
+
 
 class Editor extends React.Component {
     constructor(props) {
@@ -37,8 +42,28 @@ class Editor extends React.Component {
         this.toggleImage = this.toggleImage.bind(this);
         this.toggleParagraph = this.toggleParagraph.bind(this);
         this.toggleHeader = this.toggleHeader.bind(this);
+        this.saveCode = this.saveCode.bind(this)
     }
 
+    saveCode(){
+        const value = this.state.editor.getValue();
+        console.log(value)
+        this.props.createFile(value)
+        var textFileAsBlob = new Blob([value], {
+            type: "text/plain;charset=utf-8"
+        });
+        var fileNameToSaveAs = "myfile.txt";
+
+        var downloadLink = document.createElement("a");
+        downloadLink.download = fileNameToSaveAs;
+        if (window.webkitURL != null) {
+            downloadLink.href = window.webkitURL.createObjectURL(textFileAsBlob);
+        } else {
+            downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+        }
+        downloadLink.click();
+        
+    }
 
     setEditor(editor) {
         this.setState({ editor: editor })
@@ -387,9 +412,21 @@ class Editor extends React.Component {
                 }}
             />
             <button onClick={this.append}>button</button>
+            <button onClick={this.saveCode}>Save Code</button>
         </div>
     )
     }
 }
 
-export default Editor;
+// export default Editor;
+
+const mSTP = (state) => ({
+
+})
+
+const mDTP = dispatch => ({
+    fetchFile: file => dispatch(fetchFile(file)),
+    createFile: file => dispatch(createFile(file))
+})
+
+export default connect(mSTP,mDTP)(Editor)

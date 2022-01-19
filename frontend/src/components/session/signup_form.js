@@ -54,7 +54,7 @@ class SignupForm extends React.Component {
   render() {
     return (
       <div className="session">
-        <h1 className="formtype"> SIGN-UP </h1>
+        <h1> Sign Up </h1>
           <ul className="errors">
             {Object.keys(this.props.errors).map((error,i) => ( 
               <li key={`error-${i}`}>

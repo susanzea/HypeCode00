@@ -122,7 +122,13 @@ class SignupForm extends React.Component {
               placeholder="Confirm Password"
               onChange={this.handleInput} />
           </div>
-          <button>Create Account</button>
+          <button className="submit-button">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Create Account
+            </button>
         </form>
       </div>
     )

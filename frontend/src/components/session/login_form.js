@@ -70,7 +70,7 @@ class LoginForm extends React.Component {
               value={this.state.password}
               onChange={this.handleInput} />
           </div>
-          <button>Log in</button>
+          <button className="submit-button">Log in</button>
         </form>
       </div>
     )

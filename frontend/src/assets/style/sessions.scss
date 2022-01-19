@@ -60,3 +60,33 @@
 .input:focus {
     outline:none
 }
+
+$p4: #2196f3;
+$p5: white;
+.submit-button {
+    cursor: pointer;
+    position: relative;
+    height: 10vh;
+    background: none;
+    border: none;
+    display: block;
+    padding: 15px 30px;
+    color: $p4;
+    font-size: 36px;
+    overflow: hidden;
+    transition: .5s;
+    width: 75%;
+    align-self: center;
+}
+
+.submit-button:hover {
+    color: $p5;
+    background: $p4;
+    box-shadow: 
+        0 0 10px $p4,
+        0 0 20px $p4,
+        0 0 30px $p4,
+        0 0 40px $p4,
+    ;
+    transition-delay: .5s;
+}

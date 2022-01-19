@@ -6,7 +6,7 @@
     border: 2px solid lightblue;
 }
 
-#video-input {
+.tag-input {
     display: inline-block;
     min-width: 10px;
     max-width: 50px;

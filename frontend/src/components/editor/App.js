@@ -31,19 +31,23 @@ function App() {
     setTimeout(() => {
       debugger
       colorize("<h1>", "blue")
+      colorize("<h2>", "blue")
+      colorize("<h3>", "blue")
       colorize("<ol>", "orange")
       colorize("<ul>", "orange")
       colorize("<li>", "orange")
       colorize("<p>", "green")
-      colorize("<img>", "pink")
-      colorize("<video>", "purple")
+      colorize("<img", "pink")
+      colorize("<iframe>", "purple")
       colorize("</h1>", "blue")
+      colorize("</h2>", "blue")
+      colorize("</h3>", "blue")
       colorize("</ol>", "orange")
       colorize("</ul>", "orange")
       colorize("</li>", "orange")
       colorize("</p>", "green")
-      colorize("<img>", "pink")
-      colorize("</video>", "purple")
+      colorize(" >", "pink")
+      colorize("</iframe>", "purple")
     }, 50)
   })
 
@@ -64,26 +68,7 @@ function App() {
 
   return (
     <div id="coding-space">
-      <section className='code-buttons'>
-        <button onClick={handleInput}>ADD CODE</button>
-        <br/><br/>
-
-        {/* <div className="add-tag" id="video">
-          <button className='tag-button' id="show-video-form">video</button>
-          <form onSubmit={handleVideoSubmit} className='tag-form' id="video-form">
-            {videoOpen}<span contentEditable="true" className="tag-input" id="video-input" placeholder='insert video link...'></span>{videoClose}
-            <button type="submit">add tag</button>
-            <button id="create-video-code">x</button>
-          </form>
-        </div>
-        <br/> */}
-        
-        
-        <button className='code-inputter'>title</button>
-        <button className='code-inputter'>list</button>
-        <button className='code-inputter'>paragraph</button>
-        <button className='code-inputter'>image</button>
-      </section>
+      
       <div className="pane right-pane">
         <Editor 
           language="xml" 
@@ -100,8 +85,8 @@ function App() {
           frameBorder="0"
           height="100%"
         />
+        <button onClick={clear}>C</button>
       </div>
-      <button onClick={clear}>C</button>
     </div>
   )
 }

@@ -32,6 +32,7 @@ class Editor extends React.Component {
         this.appendHeaderTwo = this.appendHeaderTwo.bind(this);
         this.appendHeaderThree = this.appendHeaderThree.bind(this);
         this.appendOrderedList = this.appendOrderedList.bind(this);
+        this.appendUnorderedList = this.appendUnorderedList.bind(this);
         this.toggleIframe = this.toggleIframe.bind(this);
         this.toggleImage = this.toggleImage.bind(this);
         this.toggleParagraph = this.toggleParagraph.bind(this);
@@ -163,7 +164,22 @@ class Editor extends React.Component {
             line: cursor.line,
             ch: line.length// set the character position to the end of the line
         }
-        doc.replaceRange(`<ol>\n<li>${content}</li\n</ol>\n`, pos); // adds a new line
+        doc.replaceRange(`<ol>\n<li>${content}</li>\n</ol>\n`, pos); // adds a new line
+        e.target.childNodes[1].innerText = ""
+    }
+
+    appendUnorderedList(e) {
+        const content = e.target.childNodes[1].innerText
+        debugger
+        var doc = this.state.editor.getDoc();
+        var cursor = doc.getCursor(); // gets the line number in the cursor position
+        var line = doc.getLine(cursor.line); // get the line contents
+        console.log(line)
+        var pos = { // create a new object to avoid mutation of the original selection
+            line: cursor.line,
+            ch: line.length// set the character position to the end of the line
+        }
+        doc.replaceRange(`<ul>\n<li>${content}</li>\n</ul>\n`, pos); // adds a new line
         e.target.childNodes[1].innerText = ""
     }
 
@@ -220,6 +236,26 @@ class Editor extends React.Component {
         }
     }
 
+    toggleList(e) {
+        e.preventDefault();
+        if (e.target.id === "show-list-options") {
+            $(e.target).hide();
+            $(e.target).next().show();
+        } else if (e.target.id === "show-orderedList-form") {
+            $(e.target.parentElement).hide();
+            $('#orderedList-form').show();
+        } else if (e.target.id === 'hide-orderedList-form') {
+            $('#orderedList-form').hide();
+            $('#show-list-options').show();
+        } else if (e.target.id === "show-unorderedList-form") {
+            $(e.target.parentElement).hide(); //good
+            $('#unorderedList-form').show();
+        } else if (e.target.id === 'hide-unorderedList-form') {
+            $('#unorderedList-form').hide();
+            $('#show-list-options').show();
+        }
+    }
+
 
     render () {
         const {
@@ -243,6 +279,8 @@ class Editor extends React.Component {
         const headerThreeClose = "</h3>"
         const orderedListOpen = "<ol>"
         const orderedListClose = "</ol>"
+        const unorderedListOpen = "<ul>"
+        const unorderedListClose = "</ul>"
 
 
         return (
@@ -302,26 +340,33 @@ class Editor extends React.Component {
                                 <button type="submit">add tag</button>
                                 <button onClick={this.toggleHeader} id="hide-headerThree-form">x</button>
                             </form>
-
                     </div>
-                    <br/>
+                </div>
 
-                    <div>
-                        <div className="add-tag" id="orderedList">
-                            <button className='tag-button' id="show-orderedList-form">numbered points</button>
-                            <form onSubmit={this.appendOrderedList} className='tag-form' id="orderedList-form">
-                                {orderedListOpen}<span contentEditable="true" className="tag-input" id="orderedList-input" placeholder='insert orderedList link...'></span>{orderedListClose}
-                                <button type="submit">add tag</button>
-                                <button id="create-orderedList-code">x</button>
-                            </form>
-                        </div>
-                    <br/>
+                <div id="lists">
+                    <button onClick={this.toggleList} id="show-list-options">list</button>
 
+                    <div id="show-list-forms">
+                        <button onClick={this.toggleList} className='tag-button' id="show-orderedList-form">numbered</button>
+                        <button onClick={this.toggleList} className='tag-button' id="show-unorderedList-form">bulleted</button>
                     </div>
-                
+
+                    <div id="list forms">
+                        <form onSubmit={this.appendOrderedList} className='tag-form' id="orderedList-form">
+                            {orderedListOpen}<span contentEditable="true" className="tag-input" id="orderedList-input" placeholder='insert orderedList...'></span>{orderedListClose}
+                            <button type="submit">add tag</button>
+                            <button onClick={this.toggleList} id="hide-orderedList-form">x</button>
+                        </form>
+
+                        <form onSubmit={this.appendUnorderedList} className='tag-form' id="unorderedList-form">
+                            {unorderedListOpen}<span contentEditable="true" className="tag-input" id="unorderedList-input" placeholder='insert unorderedList...'></span>{unorderedListClose}
+                            <button type="submit">add tag</button>
+                            <button onClick={this.toggleList} id="hide-unorderedList-form">x</button>
+                        </form>
+                    </div>
+
 
                 </div>
-                <br/>
 
             </section>
 

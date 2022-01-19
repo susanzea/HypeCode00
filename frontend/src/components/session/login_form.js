@@ -50,7 +50,7 @@ class LoginForm extends React.Component {
               </li>
             ))}
           </ul>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} className="session-form">
           <div>
             <label>Email</label>
             <input

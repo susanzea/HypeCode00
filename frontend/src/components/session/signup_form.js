@@ -31,19 +31,8 @@ class SignupForm extends React.Component {
     })
   }
 
-  // componentWillReceiveProps (nextProps) {
-  //   if (nextProps.signedIn) { 
-  //     this.props.login({email: this.state.email, password: this.state.password})
-  //   }
-  // }
-
-  // handleSignin(user) {
-    
-  // }
-
   handleSubmit(e) {
     e.preventDefault();
-    // console.log(this.state);
    
     this.props.signup({
       email: this.state.email,
@@ -60,12 +49,6 @@ class SignupForm extends React.Component {
         })
       }
     })
-
-    // .then(
-    //   this.props.login({
-    //   email: this.state.email,
-    //   password: this.state.password
-    // }))
   }
 
   render() {

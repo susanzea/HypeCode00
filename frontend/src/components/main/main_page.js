@@ -1,5 +1,6 @@
 import React from "react";
 import HomeModal from "../modals/home_modal"
+import Editor from '../editor/App'
 
 class MainPage extends React.Component {
   constructor(props) {
@@ -26,6 +27,7 @@ class MainPage extends React.Component {
         <h1>HypeCode</h1>
         <HomeModal showModal={showHome} exitModal={this.toggleHomeModal}/>
         <button onClick={this.toggleHomeModal}>toggle modal</button>
+        <Editor />
       </div>
     )
   }

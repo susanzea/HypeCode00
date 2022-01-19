@@ -20,9 +20,6 @@ export const colorize = (tagName, color) => {
             child.setAttribute("style", `color: ${color}`)
         }
     }
-
-    debugger
-
 }
 
 

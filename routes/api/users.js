@@ -51,7 +51,6 @@ router.post('/login', (request, response) => {
 
     // const email = request.body.email;
     const password = request.body.password;
-    // debugger
     User.findOne({ email: request.body.email })
         .then(user => {
             if (!user) {

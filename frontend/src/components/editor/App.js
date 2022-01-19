@@ -29,7 +29,6 @@ function App() {
 
     // ele.setAttribute("color", "blue")
     setTimeout(() => {
-      debugger
       colorize("<h1>", "blue")
       colorize("<h2>", "blue")
       colorize("<h3>", "blue")

@@ -65,7 +65,6 @@ class Editor extends React.Component {
 
     appendIframe(e) {
         const content = e.target.childNodes[1].innerText.slice(-11)
-        debugger
         var doc = this.state.editor.getDoc();
         var cursor = doc.getCursor(); // gets the line number in the cursor position
         var line = doc.getLine(cursor.line); // get the line contents
@@ -80,7 +79,6 @@ class Editor extends React.Component {
 
     appendImage(e) {
         const content = e.target.childNodes[1].innerText
-        debugger
         var doc = this.state.editor.getDoc();
         var cursor = doc.getCursor(); // gets the line number in the cursor position
         var line = doc.getLine(cursor.line); // get the line contents
@@ -95,7 +93,6 @@ class Editor extends React.Component {
 
     appendParagraph(e) {
         const content = e.target.childNodes[1].innerText
-        debugger
         var doc = this.state.editor.getDoc();
         var cursor = doc.getCursor(); // gets the line number in the cursor position
         var line = doc.getLine(cursor.line); // get the line contents
@@ -110,7 +107,6 @@ class Editor extends React.Component {
 
     appendHeaderOne(e) {
         const content = e.target.childNodes[1].innerText
-        debugger
         var doc = this.state.editor.getDoc();
         var cursor = doc.getCursor(); // gets the line number in the cursor position
         var line = doc.getLine(cursor.line); // get the line contents
@@ -125,7 +121,6 @@ class Editor extends React.Component {
 
     appendHeaderTwo(e) {
         const content = e.target.childNodes[1].innerText
-        debugger
         var doc = this.state.editor.getDoc();
         var cursor = doc.getCursor(); // gets the line number in the cursor position
         var line = doc.getLine(cursor.line); // get the line contents
@@ -139,8 +134,8 @@ class Editor extends React.Component {
     }
 
     appendHeaderThree(e) {
-        const content = e.target.childNodes[1].innerText
         debugger
+        const content = e.target.childNodes[1].innerText
         var doc = this.state.editor.getDoc();
         var cursor = doc.getCursor(); // gets the line number in the cursor position
         var line = doc.getLine(cursor.line); // get the line contents
@@ -155,7 +150,6 @@ class Editor extends React.Component {
 
     appendOrderedList(e) {
         const content = e.target.childNodes[1].innerText
-        debugger
         var doc = this.state.editor.getDoc();
         var cursor = doc.getCursor(); // gets the line number in the cursor position
         var line = doc.getLine(cursor.line); // get the line contents
@@ -170,7 +164,6 @@ class Editor extends React.Component {
 
     appendUnorderedList(e) {
         const content = e.target.childNodes[1].innerText
-        debugger
         var doc = this.state.editor.getDoc();
         var cursor = doc.getCursor(); // gets the line number in the cursor position
         var line = doc.getLine(cursor.line); // get the line contents
@@ -228,10 +221,16 @@ class Editor extends React.Component {
             $('#headerOne-form').hide();
             $('#show-header-options').show();
         } else if (e.target.id === "show-headerTwo-form") {
-            $(e.target.parentElement).hide(); //good
+            $(e.target.parentElement).hide();
             $('#headerTwo-form').show();
         } else if (e.target.id === 'hide-headerTwo-form') {
             $('#headerTwo-form').hide();
+            $('#show-header-options').show();
+        } else if (e.target.id === "show-headerThree-form") {
+            $(e.target.parentElement).hide();
+            $('#headerThree-form').show();
+        } else if (e.target.id === 'hide-headerThree-form') {
+            $('#headerThree-form').hide();
             $('#show-header-options').show();
         }
     }
@@ -317,9 +316,9 @@ class Editor extends React.Component {
                     <button onClick={this.toggleHeader} id="show-header-options">header</button>
                     
                     <div id="show-header-forms">
-                        <button onClick={this.toggleHeader} className='tag-button' id="show-headerOne-form">header large</button>
-                        <button onClick={this.toggleHeader} className='tag-button' id="show-headerTwo-form">header medium</button>
-                        <button onClick={this.toggleHeader} className='tag-button' id="show-headerThree-form">header small</button>
+                        <button onClick={this.toggleHeader} className='tag-button' id="show-headerOne-form">large</button>
+                        <button onClick={this.toggleHeader} className='tag-button' id="show-headerTwo-form">medium</button>
+                        <button onClick={this.toggleHeader} className='tag-button' id="show-headerThree-form">small</button>
                     </div>
 
                     <div id="header-forms">

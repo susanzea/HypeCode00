@@ -42,7 +42,7 @@ class LoginForm extends React.Component {
     return (
       
       <div className="session">
-        <h1> Login </h1>
+        <h1 className="formtype"> LOGIN </h1>
           <ul className="errors">
             {Object.keys(this.props.errors).map((error,i) => ( 
               <li key={`error-${i}`}>

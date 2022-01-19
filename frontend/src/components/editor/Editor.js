@@ -205,9 +205,18 @@ class Editor extends React.Component {
         if (e.target.id === "show-header-options") {
             $(e.target).hide();
             $(e.target).next().show();
-        } else if (e.target.id === "hide-paragraph-form") {
-            $(e.target.parentElement).siblings().show();
+        } else if (e.target.id === "show-headerOne-form") {
             $(e.target.parentElement).hide();
+            $('#headerOne-form').show();
+        } else if (e.target.id === 'hide-headerOne-form') {
+            $('#headerOne-form').hide();
+            $('#show-header-options').show();
+        } else if (e.target.id === "show-headerTwo-form") {
+            $(e.target.parentElement).hide(); //good
+            $('#headerTwo-form').show();
+        } else if (e.target.id === 'hide-headerTwo-form') {
+            $('#headerTwo-form').hide();
+            $('#show-header-options').show();
         }
     }
 
@@ -247,7 +256,6 @@ class Editor extends React.Component {
                         <button onClick={this.toggleIframe} id="hide-iframe-form">x</button>
                     </form>
                 </div>
-                <br/>
 
                 <div className="add-tag" id="image">
                     <button onClick={this.toggleImage} className='tag-button' id="show-image-form">image</button>
@@ -257,7 +265,6 @@ class Editor extends React.Component {
                         <button onClick={this.toggleImage} id="hide-image-form">x</button>
                     </form>
                 </div>
-                <br/>
 
                 <div className="add-tag" id="paragraph">
                     <button onClick={this.toggleParagraph} className='tag-button' id="show-paragraph-form">paragraph</button>
@@ -267,40 +274,35 @@ class Editor extends React.Component {
                         <button onClick={this.toggleParagraph} id="hide-paragraph-form">x</button>
                     </form>
                 </div>
-                <br/>
 
                 <div id="headers">
-                    <button id="show-header-options">header</button>
-                    <div>
-                        <button className='tag-button' id="show-headerOne-form">header large</button>
-                        <button className='tag-button' id="show-headerTwo-form">header medium</button>
-                        <button className='tag-button' id="show-headerThree-form">header large</button>
+                    <button onClick={this.toggleHeader} id="show-header-options">header</button>
+                    
+                    <div id="show-header-forms">
+                        <button onClick={this.toggleHeader} className='tag-button' id="show-headerOne-form">header large</button>
+                        <button onClick={this.toggleHeader} className='tag-button' id="show-headerTwo-form">header medium</button>
+                        <button onClick={this.toggleHeader} className='tag-button' id="show-headerThree-form">header small</button>
                     </div>
 
-                    <div className="add-tag" id="headerOne">
-                        <form onSubmit={this.appendHeaderOne} className='tag-form' id="headerOne-form">
-                            {headerOneOpen}<span contentEditable="true" className="tag-input" id="headerOne-input" placeholder='insert headerOne link...'></span>{headerOneClose}
-                            <button type="submit">add tag</button>
-                            <button id="create-headerOne-code">x</button>
-                        </form>
-                    </div>
-                    <br/>
+                    <div id="header-forms">
+                            <form onSubmit={this.appendHeaderOne} className='tag-form' id="headerOne-form">
+                                {headerOneOpen}<span contentEditable="true" className="tag-input" id="headerOne-input" placeholder='insert headerOne link...'></span>{headerOneClose}
+                                <button type="submit">add tag</button>
+                                <button onClick={this.toggleHeader} id="hide-headerOne-form">x</button>
+                            </form>
 
-                    <div className="add-tag" id="headerTwo">
-                        <form onSubmit={this.appendHeaderTwo} className='tag-form' id="headerTwo-form">
-                            {headerTwoOpen}<span contentEditable="true" className="tag-input" id="headerTwo-input" placeholder='insert headerTwo link...'></span>{headerTwoClose}
-                            <button type="submit">add tag</button>
-                            <button id="create-headerTwo-code">x</button>
-                        </form>
-                    </div>
-                    <br/>
+                            <form onSubmit={this.appendHeaderTwo} className='tag-form' id="headerTwo-form">
+                                {headerTwoOpen}<span contentEditable="true" className="tag-input" id="headerTwo-input" placeholder='insert headerTwo link...'></span>{headerTwoClose}
+                                <button type="submit">add tag</button>
+                                <button onClick={this.toggleHeader} id="hide-headerTwo-form">x</button>
+                            </form>
 
-                    <div className="add-tag" id="headerThree">
-                        <form onSubmit={this.appendHeaderThree} className='tag-form' id="headerThree-form">
-                            {headerThreeOpen}<span contentEditable="true" className="tag-input" id="headerThree-input" placeholder='insert headerThree link...'></span>{headerThreeClose}
-                            <button type="submit">add tag</button>
-                            <button id="create-headerThree-code">x</button>
-                        </form>
+                            <form onSubmit={this.appendHeaderThree} className='tag-form' id="headerThree-form">
+                                {headerThreeOpen}<span contentEditable="true" className="tag-input" id="headerThree-input" placeholder='insert headerThree link...'></span>{headerThreeClose}
+                                <button type="submit">add tag</button>
+                                <button onClick={this.toggleHeader} id="hide-headerThree-form">x</button>
+                            </form>
+
                     </div>
                     <br/>
 

@@ -17,29 +17,23 @@ function HomeModal(props) {
     )
   } else {
     return (
-      <div className="wrap">
-        <RandomWrap />
+
         <div className="home-modal--wrap">
 
           <div className="home-modal">
-    
-             <TitleAnimation finalDisplay="HypeCode" name={"hclogo"}/>
-             <div className="hclogo">HypeCode</div>
-             <TitleAnimation finalDisplay= {description} name={"hctext"} interval={60}/>
-            </div>
+              <div className="btn-container">
+                <button className="exit-button" onClick={props.exitModal}>X</button>
+              </div>
+              
 
-          
+              <div className="modal-logo">Description</div>
+              
 
-            
-          </div>
-          <div className="button-block">
-            <button className="exit-button" onClick={props.exitModal}>X</button>
-          </div>
-          <div className="rand-block">
-            
-          </div>
-          
+            <div className="description">{description}</div>
         </div>
+      </div>
+
+
 
     )
   }

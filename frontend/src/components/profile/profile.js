@@ -58,6 +58,9 @@ class Profile extends React.Component {
     }
 
     // add hyperlink to filename
+    // change how we fetch bio
+    // edit bio form submission
+
     render() {
         if (!this.props.files) return null
         if (!this.state.edited && !this.state.editbio) {

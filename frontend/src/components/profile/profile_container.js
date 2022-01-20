@@ -6,7 +6,8 @@ import { fetchUser, updateUser } from "../../actions/user_actions";
 
 const mSTP = state => ({
     currentUser: state.session.currentUser,
-    files: state.entities.file.data
+    files: state.entities.file.data,
+    user: state.entities.user.data
 })
 
 const mDTP = dispatch => ({

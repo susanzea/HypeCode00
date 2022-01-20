@@ -1,5 +1,6 @@
 $red: #F82F40;
 $blue: #31CBFD;
+$violet: #ec94f4;
 
 
 #blue:hover {
@@ -28,8 +29,8 @@ $blue: #31CBFD;
 }
 
 #fuschia:hover {
-    color: #f124fd;
-    text-shadow: 0 0 30px #f124fd;
+    color: $violet;
+    text-shadow: 0 0 30px $violet;
 }
 
 #lightviolet:hover {
@@ -85,8 +86,8 @@ $blue: #31CBFD;
 }
 
 #fuschia {
-    color: #f124fd;
-    text-shadow: 5px 5px 40px #f124fd;
+    color: $violet;
+    text-shadow: 5px 5px 40px $violet;
 }
 
 #lightviolet {

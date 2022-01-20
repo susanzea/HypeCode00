@@ -29,24 +29,24 @@ function App() {
 
     // ele.setAttribute("color", "blue")
     setTimeout(() => {
-      colorize("<h1>", "blue")
-      colorize("<h2>", "blue")
-      colorize("<h3>", "blue")
-      colorize("<ol>", "orange")
-      colorize("<ul>", "orange")
-      colorize("<li>", "orange")
-      colorize("<p>", "green")
-      colorize("<img", "pink")
-      colorize("<iframe>", "purple")
-      colorize("</h1>", "blue")
-      colorize("</h2>", "blue")
-      colorize("</h3>", "blue")
-      colorize("</ol>", "orange")
-      colorize("</ul>", "orange")
-      colorize("</li>", "orange")
-      colorize("</p>", "green")
-      colorize(" >", "pink")
-      colorize("</iframe>", "purple")
+      colorize("<h1>", "#31CBFD")
+      colorize("<h2>", "#31CBFD")
+      colorize("<h3>", "#31CBFD")
+      colorize("<ol>", "#FBA602")
+      colorize("<ul>", "#FBA602")
+      colorize("<li>", "#FBA602")
+      colorize("<p>", "#46F200")
+      colorize("<img", "#fffa00")
+      colorize("<iframe>", "#ec94f4")
+      colorize("</h1>", "#31CBFD")
+      colorize("</h2>", "#31CBFD")
+      colorize("</h3>", "#31CBFD")
+      colorize("</ol>", "#FBA602")
+      colorize("</ul>", "#FBA602")
+      colorize("</li>", "#FBA602")
+      colorize("</p>", "#46F200")
+      colorize(" >", "#fffa00")
+      colorize("</iframe>", "#ec94f4")
     }, 50)
   })
 
@@ -75,6 +75,7 @@ function App() {
           value={html}
           onChange={setHtml}
         />
+        <button onClick={clear} id="clear" >C</button>
       </div>
       <div className="pane left-pane">
         <iframe 
@@ -84,7 +85,6 @@ function App() {
           frameBorder="0"
           height="100%"
         />
-        <button onClick={clear}>C</button>
       </div>
     </div>
   )

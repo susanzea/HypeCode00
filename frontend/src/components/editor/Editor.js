@@ -313,7 +313,7 @@ class Editor extends React.Component {
                 </div>
 
                 <div id="headers">
-                    <button onClick={this.toggleHeader} id="show-header-options">header</button>
+                    <button onClick={this.toggleHeader} className='tag-button' id="show-header-options">header</button>
                     
                     <div id="show-header-forms">
                         <button onClick={this.toggleHeader} className='tag-button' id="show-headerOne-form">large</button>
@@ -343,7 +343,7 @@ class Editor extends React.Component {
                 </div>
 
                 <div id="lists">
-                    <button onClick={this.toggleList} id="show-list-options">list</button>
+                    <button onClick={this.toggleList} className='tag-button' id="show-list-options">list</button>
 
                     <div id="show-list-forms">
                         <button onClick={this.toggleList} className='tag-button' id="show-orderedList-form">numbered</button>

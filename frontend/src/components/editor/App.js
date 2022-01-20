@@ -38,6 +38,7 @@ function App() {
       colorize("<p>", "#46F200")
       colorize("<img", "#fffa00")
       colorize("<iframe>", "#ec94f4")
+      colorize("<video>", "#ec94f4")
       colorize("</h1>", "#31CBFD")
       colorize("</h2>", "#31CBFD")
       colorize("</h3>", "#31CBFD")
@@ -47,6 +48,7 @@ function App() {
       colorize("</p>", "#46F200")
       colorize(" >", "#fffa00")
       colorize("</iframe>", "#ec94f4")
+      colorize("</video>", "#ec94f4")
     }, 50)
   })
 

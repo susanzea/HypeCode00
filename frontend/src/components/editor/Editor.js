@@ -99,7 +99,7 @@ class Editor extends React.Component {
             line: cursor.line,
             ch: line.length// set the character position to the end of the line
         }
-        doc.replaceRange(`<iframe width="504" height="378" src="https://www.youtube.com/embed/${content}"></iframe>\n`, pos); // adds a new line
+        doc.replaceRange(`<video>\n   <iframe width="504" height="378" src="https://www.youtube.com/embed/${content}"></iframe>\n</video>\n`, pos); // adds a new line
         e.target.childNodes[1].innerText = ""
     }
 
@@ -184,7 +184,7 @@ class Editor extends React.Component {
             line: cursor.line,
             ch: line.length// set the character position to the end of the line
         }
-        doc.replaceRange(`<ol>\n<li>${content}</li>\n</ol>\n`, pos); // adds a new line
+        doc.replaceRange(`<ol>\n   <li>${content}</li>\n</ol>\n`, pos); // adds a new line
         e.target.childNodes[1].innerText = ""
     }
 
@@ -198,7 +198,7 @@ class Editor extends React.Component {
             line: cursor.line,
             ch: line.length// set the character position to the end of the line
         }
-        doc.replaceRange(`<ul>\n<li>${content}</li>\n</ul>\n`, pos); // adds a new line
+        doc.replaceRange(`<ul>\n   <li>${content}</li>\n</ul>\n`, pos); // adds a new line
         e.target.childNodes[1].innerText = ""
     }
 
@@ -311,86 +311,91 @@ class Editor extends React.Component {
         return (
         <div className="editor-container">
             <div id="tag-buttons">
-                <div className="add-tag" id="iframe">
-                    <button onClick={this.toggleIframe} className='tag-button' id="show-iframe-form">video</button>
-                    <form onSubmit={this.appendIframe} className='tag-form' id="video-form">
-                        {iframeOpen}<span contentEditable="true" className="tag-input" id="image-input" placeholder='insert video link...'></span>{iframeClose}
-                        <button type="submit" id="add-iframe">add tag</button>
-                        <button onClick={this.toggleIframe} id="hide-iframe-form">x</button>
-                    </form>
-                </div>
 
-                <div className="add-tag" id="image">
-                    <button onClick={this.toggleImage} className='tag-button' id="show-image-form">image</button>
-                    <form onSubmit={this.appendImage} className='tag-form' id="image-form">
-                        {imageOpen}<span contentEditable="true" className="tag-input" id="image-input" placeholder='insert image link...'></span>{imageClose}
-                        <button type="submit">add tag</button>
-                        <button onClick={this.toggleImage} id="hide-image-form">x</button>
-                    </form>
-                </div>
 
-                <div className="add-tag" id="paragraph">
-                    <button onClick={this.toggleParagraph} className='tag-button' id="show-paragraph-form">paragraph</button>
-                    <form onSubmit={this.appendParagraph} className='tag-form' id="paragraph-form">
-                        {paragraphOpen}<span contentEditable="true" className="tag-input" id="paragraph-input" placeholder='insert paragraph link...'></span>{paragraphClose}
-                        <button type="submit">add tag</button>
-                        <button onClick={this.toggleParagraph} id="hide-paragraph-form">x</button>
-                    </form>
-                </div>
+                <div id="tags-top-row">
+                    <div id="headers">
+                        <button onClick={this.toggleHeader} className='tag-button' id="show-header-options">header</button>
+                        
+                        <div id="show-header-forms">
+                            <button onClick={this.toggleHeader} className='tag-button' id="show-headerOne-form">large</button>
+                            <button onClick={this.toggleHeader} className='tag-button' id="show-headerTwo-form">medium</button>
+                            <button onClick={this.toggleHeader} className='tag-button' id="show-headerThree-form">small</button>
+                        </div>
 
-                <div id="headers">
-                    <button onClick={this.toggleHeader} className='tag-button' id="show-header-options">header</button>
-                    
-                    <div id="show-header-forms">
-                        <button onClick={this.toggleHeader} className='tag-button' id="show-headerOne-form">large</button>
-                        <button onClick={this.toggleHeader} className='tag-button' id="show-headerTwo-form">medium</button>
-                        <button onClick={this.toggleHeader} className='tag-button' id="show-headerThree-form">small</button>
+                        <div id="header-forms">
+                                <form onSubmit={this.appendHeaderOne} className='tag-form' id="headerOne-form">
+                                    {headerOneOpen}<span contentEditable="true" className="tag-input" id="headerOne-input" placeholder='insert headerOne link...'></span>{headerOneClose}
+                                    <button type="submit">add tag</button>
+                                    <button onClick={this.toggleHeader} id="hide-headerOne-form">x</button>
+                                </form>
+
+                                <form onSubmit={this.appendHeaderTwo} className='tag-form' id="headerTwo-form">
+                                    {headerTwoOpen}<span contentEditable="true" className="tag-input" id="headerTwo-input" placeholder='insert headerTwo link...'></span>{headerTwoClose}
+                                    <button type="submit">add tag</button>
+                                    <button onClick={this.toggleHeader} id="hide-headerTwo-form">x</button>
+                                </form>
+
+                                <form onSubmit={this.appendHeaderThree} className='tag-form' id="headerThree-form">
+                                    {headerThreeOpen}<span contentEditable="true" className="tag-input" id="headerThree-input" placeholder='insert headerThree link...'></span>{headerThreeClose}
+                                    <button type="submit">add tag</button>
+                                    <button onClick={this.toggleHeader} id="hide-headerThree-form">x</button>
+                                </form>
+                        </div>
                     </div>
 
-                    <div id="header-forms">
-                            <form onSubmit={this.appendHeaderOne} className='tag-form' id="headerOne-form">
-                                {headerOneOpen}<span contentEditable="true" className="tag-input" id="headerOne-input" placeholder='insert headerOne link...'></span>{headerOneClose}
+                    <div id="lists">
+                        <button onClick={this.toggleList} className='tag-button' id="show-list-options">list</button>
+
+                        <div id="show-list-forms">
+                            <button onClick={this.toggleList} className='tag-button' id="show-orderedList-form">numbered</button>
+                            <button onClick={this.toggleList} className='tag-button' id="show-unorderedList-form">bulleted</button>
+                        </div>
+
+                        <div id="list forms">
+                            <form onSubmit={this.appendOrderedList} className='tag-form' id="orderedList-form">
+                                {orderedListOpen}<span contentEditable="true" className="tag-input" id="orderedList-input" placeholder='insert orderedList...'></span>{orderedListClose}
                                 <button type="submit">add tag</button>
-                                <button onClick={this.toggleHeader} id="hide-headerOne-form">x</button>
+                                <button onClick={this.toggleList} id="hide-orderedList-form">x</button>
                             </form>
 
-                            <form onSubmit={this.appendHeaderTwo} className='tag-form' id="headerTwo-form">
-                                {headerTwoOpen}<span contentEditable="true" className="tag-input" id="headerTwo-input" placeholder='insert headerTwo link...'></span>{headerTwoClose}
+                            <form onSubmit={this.appendUnorderedList} className='tag-form' id="unorderedList-form">
+                                {unorderedListOpen}<span contentEditable="true" className="tag-input" id="unorderedList-input" placeholder='insert unorderedList...'></span>{unorderedListClose}
                                 <button type="submit">add tag</button>
-                                <button onClick={this.toggleHeader} id="hide-headerTwo-form">x</button>
+                                <button onClick={this.toggleList} id="hide-unorderedList-form">x</button>
                             </form>
-
-                            <form onSubmit={this.appendHeaderThree} className='tag-form' id="headerThree-form">
-                                {headerThreeOpen}<span contentEditable="true" className="tag-input" id="headerThree-input" placeholder='insert headerThree link...'></span>{headerThreeClose}
-                                <button type="submit">add tag</button>
-                                <button onClick={this.toggleHeader} id="hide-headerThree-form">x</button>
-                            </form>
+                        </div>
                     </div>
                 </div>
 
-                <div id="lists">
-                    <button onClick={this.toggleList} className='tag-button' id="show-list-options">list</button>
 
-                    <div id="show-list-forms">
-                        <button onClick={this.toggleList} className='tag-button' id="show-orderedList-form">numbered</button>
-                        <button onClick={this.toggleList} className='tag-button' id="show-unorderedList-form">bulleted</button>
-                    </div>
-
-                    <div id="list forms">
-                        <form onSubmit={this.appendOrderedList} className='tag-form' id="orderedList-form">
-                            {orderedListOpen}<span contentEditable="true" className="tag-input" id="orderedList-input" placeholder='insert orderedList...'></span>{orderedListClose}
-                            <button type="submit">add tag</button>
-                            <button onClick={this.toggleList} id="hide-orderedList-form">x</button>
-                        </form>
-
-                        <form onSubmit={this.appendUnorderedList} className='tag-form' id="unorderedList-form">
-                            {unorderedListOpen}<span contentEditable="true" className="tag-input" id="unorderedList-input" placeholder='insert unorderedList...'></span>{unorderedListClose}
-                            <button type="submit">add tag</button>
-                            <button onClick={this.toggleList} id="hide-unorderedList-form">x</button>
+                <div id="tags-bottom-row">
+                    <div className="add-tag" id="iframe">
+                        <button onClick={this.toggleIframe} className='tag-button' id="show-iframe-form">video</button>
+                        <form onSubmit={this.appendIframe} className='tag-form' id="video-form">
+                            {iframeOpen}<span contentEditable="true" className="tag-input" id="image-input" placeholder='insert video link...'></span>{iframeClose}
+                            <button type="submit" id="add-iframe">add tag</button>
+                            <button onClick={this.toggleIframe} id="hide-iframe-form">x</button>
                         </form>
                     </div>
 
+                    <div className="add-tag" id="image">
+                        <button onClick={this.toggleImage} className='tag-button' id="show-image-form">image</button>
+                        <form onSubmit={this.appendImage} className='tag-form' id="image-form">
+                            {imageOpen}<span contentEditable="true" className="tag-input" id="image-input" placeholder='insert image link...'></span>{imageClose}
+                            <button type="submit">add tag</button>
+                            <button onClick={this.toggleImage} id="hide-image-form">x</button>
+                        </form>
+                    </div>
 
+                    <div className="add-tag" id="paragraph">
+                        <button onClick={this.toggleParagraph} className='tag-button' id="show-paragraph-form">paragraph</button>
+                        <form onSubmit={this.appendParagraph} className='tag-form' id="paragraph-form">
+                            {paragraphOpen}<span contentEditable="true" className="tag-input" id="paragraph-input" placeholder='insert paragraph link...'></span>{paragraphClose}
+                            <button type="submit">add tag</button>
+                            <button onClick={this.toggleParagraph} id="hide-paragraph-form">x</button>
+                        </form>
+                    </div>
                 </div>
 
             </div>

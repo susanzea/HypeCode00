@@ -23,11 +23,11 @@ body {
 .left-pane {
   height: 75vh;
   background-color: #1f2023;
-  border: 2px solid lavender;
   border-radius: 8px;
   margin-left: 3%;
   padding: 15px;
-
+  border: #747576;
+  box-shadow: #747576 0 0 0.5em;
 }
 
 .editor-container {

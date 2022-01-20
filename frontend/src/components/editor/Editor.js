@@ -73,7 +73,7 @@ class Editor extends React.Component {
             line: cursor.line,
             ch: line.length// set the character position to the end of the line
         }
-        doc.replaceRange(`<iframe width="420" height="315" src="https://www.youtube.com/embed/${content}"></iframe>\n`, pos); // adds a new line
+        doc.replaceRange(`<iframe width="504" height="378" src="https://www.youtube.com/embed/${content}"></iframe>\n`, pos); // adds a new line
         e.target.childNodes[1].innerText = ""
     }
 

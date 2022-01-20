@@ -99,7 +99,7 @@ class Editor extends React.Component {
             line: cursor.line,
             ch: line.length// set the character position to the end of the line
         }
-        doc.replaceRange(`<iframe width="420" height="315" src="https://www.youtube.com/embed/${content}"></iframe>\n`, pos); // adds a new line
+        doc.replaceRange(`<iframe width="504" height="378" src="https://www.youtube.com/embed/${content}"></iframe>\n`, pos); // adds a new line
         e.target.childNodes[1].innerText = ""
     }
 
@@ -310,7 +310,7 @@ class Editor extends React.Component {
 
         return (
         <div className="editor-container">
-            <section id="tag-buttons">
+            <div id="tag-buttons">
                 <div className="add-tag" id="iframe">
                     <button onClick={this.toggleIframe} className='tag-button' id="show-iframe-form">video</button>
                     <form onSubmit={this.appendIframe} className='tag-form' id="video-form">
@@ -339,7 +339,7 @@ class Editor extends React.Component {
                 </div>
 
                 <div id="headers">
-                    <button onClick={this.toggleHeader} id="show-header-options">header</button>
+                    <button onClick={this.toggleHeader} className='tag-button' id="show-header-options">header</button>
                     
                     <div id="show-header-forms">
                         <button onClick={this.toggleHeader} className='tag-button' id="show-headerOne-form">large</button>
@@ -369,7 +369,7 @@ class Editor extends React.Component {
                 </div>
 
                 <div id="lists">
-                    <button onClick={this.toggleList} id="show-list-options">list</button>
+                    <button onClick={this.toggleList} className='tag-button' id="show-list-options">list</button>
 
                     <div id="show-list-forms">
                         <button onClick={this.toggleList} className='tag-button' id="show-orderedList-form">numbered</button>
@@ -393,7 +393,7 @@ class Editor extends React.Component {
 
                 </div>
 
-            </section>
+            </div>
 
 
             <div className='editor-title'>

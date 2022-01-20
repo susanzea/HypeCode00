@@ -26,7 +26,7 @@ class MainPage extends React.Component {
     return (
       <div className="main-page">
         <HomeModal showModal={showHome} exitModal={this.toggleHomeModal}/>
-        <button onClick={this.toggleHomeModal} className="button-green">toggle modal</button>
+        <button onClick={this.toggleHomeModal} className="directions">?</button>
         <Editor />
       </div>
     )

@@ -1,19 +1,29 @@
 #tag-buttons {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
     margin-bottom: 10px;
 }
 
+#tags-top-row, #tags-bottom-row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .tag-button {
-    font-size: 18px;
-    font-weight: bold;
+    color: white;
+    font-weight: bolder;
+    font-size: 20px;
+    font-family: monospace;
+    // font-weight: ;
     border: none;
     border-radius: 5px;
     width: 100px;
-    height: 40px;
+    height: 32px;
     margin: 10px 10px;
 }
+
+
 
 .tag-form {
     border: 2px solid lightblue;
@@ -26,6 +36,83 @@
     border: 1px solid gray;
     border-radius: 3px;
 }
+
+
+
+
+
+
+#show-header-options {
+    font-weight: normal;
+    color: #31CBFD;
+    background-color: #414a4c;
+    border: 1px solid #31CBFD;
+}
+
+#show-list-options {
+    font-weight: normal;
+    color: #FBA602;
+    background-color: #414a4c;
+    border: 1px solid #FBA602;
+}
+
+#show-iframe-form {
+    font-weight: normal;
+    color: #ec94f4;
+    background-color: #414a4c;
+    border: 1px solid #ec94f4;
+}
+
+#show-image-form {
+    font-weight: normal;
+    color: #fffa00;
+    background-color: #414a4c;
+    border: 1px solid #fffa00;
+}
+
+#show-paragraph-form {
+    font-weight: normal;
+    width: 140px;
+    color: #46F200;
+    background-color: #414a4c;
+    border: 1px solid #46F200;
+}
+
+
+
+
+
+#show-header-options:hover {
+    color: #414a4c;
+    background-color: #31CBFD;
+}
+
+#show-list-options:hover {
+    color: #414a4c;
+    background-color: #FBA602;
+}
+
+#show-iframe-form:hover {
+    color: #595c5d;
+    background-color: #ec94f4;
+}
+
+#show-image-form:hover {
+    color: #414a4c;
+    background-color: #fffa00;
+}
+
+#show-paragraph-form:hover {
+    width: 140px;
+    color: #414a4c;
+    background-color: #46F200;
+}
+
+
+
+
+
+
 
 #video-form {
     display: none;

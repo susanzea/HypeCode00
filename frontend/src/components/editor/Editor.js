@@ -284,7 +284,7 @@ class Editor extends React.Component {
 
         return (
         <div className="editor-container">
-            <section id="tag-buttons">
+            <div id="tag-buttons">
                 <div className="add-tag" id="iframe">
                     <button onClick={this.toggleIframe} className='tag-button' id="show-iframe-form">video</button>
                     <form onSubmit={this.appendIframe} className='tag-form' id="video-form">
@@ -367,7 +367,7 @@ class Editor extends React.Component {
 
                 </div>
 
-            </section>
+            </div>
 
 
             <div className='editor-title'>

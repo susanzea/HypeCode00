@@ -48,7 +48,8 @@ class Editor extends React.Component {
     saveCode(){
         const value = this.state.editor.getValue();
         console.log(value)
-        this.props.createFile(value)
+        this.props.createFile({code:value})
+        // debugger
         var textFileAsBlob = new Blob([value], {
             type: "text/plain;charset=utf-8"
         });
@@ -61,7 +62,7 @@ class Editor extends React.Component {
         } else {
             downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
         }
-        downloadLink.click();
+        // downloadLink.click();
         
     }
 
@@ -159,7 +160,7 @@ class Editor extends React.Component {
     }
 
     appendHeaderThree(e) {
-        debugger
+        // debugger
         const content = e.target.childNodes[1].innerText
         var doc = this.state.editor.getDoc();
         var cursor = doc.getCursor(); // gets the line number in the cursor position

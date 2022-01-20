@@ -5,9 +5,8 @@ export const createFile = (file) => {
     return axios.post('/api/files/', file)
 }
 
-export const updateFile = (file, code, name) => {
-    debugger
-    return axios.patch(`/api/files/${file._id}`, {code: code, name: name})
+export const updateFile = (id, code, name) => {
+    return axios.patch(`/api/files/${id}`, {code: code, name: name})
 }
 
 export const deleteFile = (fileId) => {

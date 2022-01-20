@@ -34,8 +34,8 @@ export const createFile = file => dispatch => {
     .then(file => dispatch(receiveFile(file)))
 }
 
-export const updateFile = (file,code,name) => dispatch => {
-    FileAPIUtil.updateFile(file,code,name)
+export const updateFile = (id,code,name) => dispatch => {
+    FileAPIUtil.updateFile(id,code,name)
     .then(file => dispatch(receiveFile(file)))
 }
 

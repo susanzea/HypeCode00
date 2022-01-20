@@ -25,7 +25,6 @@ $p3: #13ca91;
   width: 80%;
   border: solid 3px greenyellow;
   box-shadow: 1px 1px 2px 1px yellow;
-  margin-top: 12px;
 }
 
 .menu-item a {
@@ -74,23 +73,26 @@ $p3: #13ca91;
     justify-content: center;
     text-transform: uppercase;
     overflow: hidden;
-    box-shadow: 0 0 5px 3px $p3 ;
-    color: $p3;
+    color: white;
+    text-shadow: 1px 1px 10px #fff, 1px 1px 10px #ccc;
+    // box-shadow: 0 0 5px 3px $p3 ;
+    // color: $p3;
     border-radius: 20px;
 }
 
 .menu-icon:hover{
   color: white;
+  text-shadow: none;
   background: $p3;
   box-shadow: 0 0 10px $p3, 0 0 30px $p3, 0 0 40px $p3,0 0 60px $p3;
   transition: .75s;
 }
 
 
-.menu-wrapper{
-  // color: #13ca91;
-  // border: 1px solid #13ca91;
-}
+// .menu-wrapper{
+//   // color: #13ca91;
+//   // border: 1px solid #13ca91;
+// }
 
 .menu-wrapper:hover{
   color: white;

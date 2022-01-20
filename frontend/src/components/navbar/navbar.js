@@ -26,10 +26,10 @@ class NavBar extends React.Component {
       return (
         <div className="nav-right">
             <div className="nav-inner-button">
-                <Link to={'/signup'} className="menu-icon" id="signup-button">Sign Up</Link>
+                <Link to={'/signup'} className="menu-icon" id="signup-button">Signup</Link>
             </div>
             <div className="nav-inner-button">
-                <Link to={'/login'} className="menu-icon" id="login-button">Log In</Link>
+                <Link to={'/login'} className="menu-icon" id="login-button">Login</Link>
             </div>
         </div>
       )
@@ -37,9 +37,11 @@ class NavBar extends React.Component {
   }
 
   render() {
+    const title = <plaintext><span id="blue">&lt;</span><span id="red">H</span><span id="orange">y</span><span id="yellow">p</span><span id="lightgreen">e</span><span id="green">C</span><span id="lightblue">o</span><span id="blue">d</span><span id="lightviolet">e</span><span id="violet">&#47;</span><span id="fuschia">&gt;</span></plaintext>
+
     return (
       <div className="navbar">
-        <Link to="/" className="hclogo">HypeCode</Link>
+        <Link to="/" className="hclogo">{title}</Link>
         { this.getLinks() }
       </div>
     )

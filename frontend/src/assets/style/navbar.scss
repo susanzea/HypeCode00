@@ -3,9 +3,14 @@
     // border: red 2px solid;
     align-items: center;
     justify-content: space-evenly;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    height: 65px;
     // background-color: lavender;
     // background-color: #414a4c;
-    border-bottom: blue 2px solid;
+    border-bottom: white 2px solid;
     padding-bottom: 10px;
     box-shadow: 0 6px 2px -2px cyan;
 }
@@ -36,6 +41,7 @@
 
 .hclogo {
     font-size: 44px;
+    font-weight: 900;
     color: white;
     text-decoration: none;
     // background: -webkit-linear-gradient(right #cbad6d, 50% #d53369);
@@ -55,7 +61,7 @@
 }
 
 .hclogo:hover {
-    color: wheat;
+    // color: wheat;
     transition: all 1s linear;
     // text-shadow: 0 0 3em cyan;
     // background: -webkit-linear-gradient (#cbad6d, #d53369);
@@ -76,7 +82,11 @@
 #menulogged{
     max-width: 120px;
 }
+
 #login-button,
 #signup-button{
-    min-width: 140px;
+    margin-top: 6px;;
+    font-size: 18px;
+    width: 80px;
+    height: 25px;
 }

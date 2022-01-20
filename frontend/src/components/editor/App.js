@@ -1,5 +1,5 @@
-import './styles/index.css'
-import './styles/tag_buttons.css'
+// import './styles/index.scss'
+// import './styles/tag_buttons.scss'
 import { colorize } from './editor_helpers';
 import React, { useState, UseEffect, useEffect } from 'react';
 import Editor from './Editor';

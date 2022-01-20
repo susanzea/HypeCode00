@@ -17,11 +17,11 @@ $b5: #0e1111;
   display: flex;
   flex-direction: column;
   background-color: $b1;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
 }
 
-.button-green {
+.directions {
   background-color: $green;
   color: $b1;
   border: none;

@@ -386,7 +386,6 @@ class Editor extends React.Component {
                     theme: 'material'
                 }}
             />
-            <button onClick={this.append}>button</button>
         </div>
     )
     }

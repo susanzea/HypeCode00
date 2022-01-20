@@ -68,8 +68,8 @@ router.patch('/:id', passport.authenticate('jwt', { session: false }),
 router.delete('/:id', passport.authenticate('jwt', {session: false}),
     (request,response) => {
         File.deleteOne( {"_id": request.params.id, "user": request.user["id"]} ) 
-        .then(file => response(file))
-        .catch(errors => response.status(404).json({ NoFilesAttached: 'No files exist'}))
+        .then(() => response.status(200).json({ Deleted: 'It has been done'}))
+        // .catch(errors => response.status(404).json({ Deleted: 'The file has been deleted'}))
     }
 )
 module.exports = router;

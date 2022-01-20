@@ -9,6 +9,7 @@ const validateSignupInput = require('../../validation/signup');
 const passport = require('passport');
 const res = require("express/lib/response");
 const req = require("express/lib/request");
+const { request, response } = require("express");
 
 router.get("/test", (request,response) => response.json({ msg: " Test Route."}))
 
@@ -66,7 +67,7 @@ router.post('/login', (request, response) => {
                         jwt.sign(
                             payload,
                             keys.secretOrKey,
-                            {expiresIn: 3600},
+                            {expiresIn: 36000},
                             (error, token) => {
                                 response.json({
                                     success: true,
@@ -85,6 +86,12 @@ router.get('/current', passport.authenticate('jwt', {session: false}), (req, res
             first_name: req.user.first_name,
             email: req.user.email
         });
+})
+
+router.get('/:id', (request,response) => {
+    User.findById(request.params.id)
+    .then(user => response.json(user))
+    .catch(errors => response.json(errors))
 })
 
 router.patch("/:id", passport.authenticate('jwt', {session: false}), (request, response) => {

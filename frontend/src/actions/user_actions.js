@@ -7,8 +7,8 @@ const receiveUser = (user) => ({
     user
 })
 
-export const updateUser = (id, bio, first_name) => dispatch => {
-    UserAPIUtil.updateUser(id,bio,first_name)
+export const updateUser = (id,first_name,bio) => dispatch => {
+    UserAPIUtil.updateUser(id,first_name,bio)
     .then(user => dispatch(receiveUser(user)))
 }
 

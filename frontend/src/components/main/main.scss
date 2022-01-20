@@ -13,6 +13,8 @@ $b3: #353839;
 $b4: #232b2b;
 $b5: #0e1111;
 
+$p3: #13ca91;
+
 .main-page {
   display: flex;
   flex-direction: column;
@@ -22,11 +24,23 @@ $b5: #0e1111;
 }
 
 .directions {
-  background-color: $green;
-  color: $b1;
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  background-color: $p3;
+  font-size: 25px;
+  text-shadow: 1px 1px 12px #fff, 1px 1px 10px #ccc;
+  color: white;
   border: none;
+  box-shadow: 0 0 5px $p3, 0 0 15px $p3, 0 0 20px $p3,0 0 30px $p3;
   cursor: pointer;
-  height: 22px;
-  width: fit-content;
+  height: 35px;
+  border-radius: 50%;
+  width: 35px;
   font-weight: bold;
+}
+
+.directions:hover {
+    box-shadow: 0 0 10px $p3, 0 0 30px $p3, 0 0 40px $p3,0 0 60px $p3;
+
 }

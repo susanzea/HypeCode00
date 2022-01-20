@@ -1,5 +1,6 @@
 .navbar{ 
     display: flex;
+    background-color: black;
     // border: red 2px solid;
     align-items: center;
     justify-content: space-evenly;
@@ -18,7 +19,6 @@
 .nav-right{
     flex: 1;
     justify-content: center;
-    margin-right: 3%;
     display: flex;
     width: 100%;
     gap: 10px;
@@ -89,4 +89,8 @@
     font-size: 18px;
     width: 80px;
     height: 25px;
+}
+
+#login-button {
+    margin-left: 5px;
 }

@@ -1,4 +1,6 @@
 import React  from "react";
+import { Link } from "react-router-dom";
+import { FaRegUserCircle } from 'react-icons/fa/index'
 
 class Profile extends React.Component {
     constructor(props) {
@@ -75,6 +77,28 @@ class Profile extends React.Component {
         return e => this.setState({[field]: e.target.value})
     }
 
+    saveCode(code) {
+        // const value = this.state.editor.getValue();
+        const value = code
+        console.log(value)
+        // this.props.createFile({ code: value })
+        // debugger
+        var textFileAsBlob = new Blob([value], {
+            type: "text/plain;charset=utf-8"
+        });
+        var fileNameToSaveAs = "myfile.txt";
+
+        var downloadLink = document.createElement("a");
+        downloadLink.download = fileNameToSaveAs;
+        if (window.webkitURL != null) {
+            downloadLink.href = window.webkitURL.createObjectURL(textFileAsBlob);
+        } else {
+            downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+        }
+        downloadLink.click();
+
+    }
+
 
     // add hyperlink to filename
     // change how we fetch bio
@@ -85,25 +109,44 @@ class Profile extends React.Component {
         // debugger
         if (!this.state.edited && !this.state.editbio) {
             return (
-                <div style={{color: "green", fontSize: "26px"}} >
-                    <div>
+                <div className="profile-container" style={{color: "green", fontSize: "26px"}} >
+                <div>
+                    <div className="icon-container">
+                        <FaRegUserCircle className="user-icon" />
+                    </div>
+                    
+                    <div className="profile-name">
+                        <div>
                         Hello, this is {this.props.user.first_name}'s profile
+                        </div>
                     </div>
                     <div className="bio-container">
                         {this.props.user.bio}
                         <br />
                         <button onClick={() => this.handleBioClick()}> Edit Bio </button>
                     </div>
+                </div>
+
                     <div style={{color: "red", fontSize: "16px"}}> 
                         Here are your solutions to previous problems!
                         <div>
+                           
                             <ul>
                             {
                                 Object.values(this.props.files).map( file => (
-                                    <li key={file._id}>
-                                        File Name:{file.name} <br/> File Content:{file.code} <br/> File Id: {file._id} <br/>
-                                        <button onClick={() => this.handleDelete(file)}> delete </button>
-                                        <button onClick={() => this.handleUpdateClick(file)}> update </button>
+                                    
+                                    <li className="file-item" key={file._id}>
+                                        <div className="download-button" onClick={() => this.saveCode(file.code)}> 
+                                            <Link to='#'>{file.name.slice(0, 8)}</Link>
+                                        </div>
+                                        <div className="file-details">
+                                        File Content:{file.code.slice(0,25)}... <br/>  
+                                              File Id: {file._id} <br/>
+                                        </div>
+                                        <div className="file-buttons">
+                                            <button className="file-button" onClick={() => this.handleUpdateClick(file)}>update file</button>
+                                            <button className="file-button" onClick={() => this.handleDelete(file)}>delete file</button>
+                                        </div>
                                     </li>
                                 ))
                             }

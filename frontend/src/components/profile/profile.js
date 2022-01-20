@@ -110,14 +110,14 @@ class Profile extends React.Component {
         if (!this.state.edited && !this.state.editbio) {
             return (
                 <div className="profile-container" style={{color: "green", fontSize: "26px"}} >
-                <div>
+                <div className="left-profile">
                     <div className="icon-container">
                         <FaRegUserCircle className="user-icon" />
                     </div>
                     
                     <div className="profile-name">
-                        <div>
-                        Hello, this is {this.props.user.first_name}'s profile
+                        <div className="user-name">
+                            Hello, this is {this.props.user.first_name}'s profile
                         </div>
                     </div>
                     <div className="bio-container">

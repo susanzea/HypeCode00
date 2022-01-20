@@ -62,7 +62,7 @@ class Editor extends React.Component {
         } else {
             downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
         }
-        // downloadLink.click();
+        downloadLink.click();
         
     }
 

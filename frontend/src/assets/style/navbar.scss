@@ -1,6 +1,6 @@
 .navbar{ 
     display: flex;
-    background-color: black;
+    background-color: #1f2023;
     // border: red 2px solid;
     align-items: center;
     justify-content: space-evenly;
@@ -11,13 +11,16 @@
     height: 65px;
     // background-color: lavender;
     // background-color: #414a4c;
-    border-bottom: white 2px solid;
+    // border-bottom: white 2px solid;
     padding-bottom: 10px;
     box-shadow: 0 6px 2px -2px cyan;
 }
 
 .nav-right{
+    // position: fixed;
+    // right: 5px;
     flex: 1;
+    margin-left: 80%;
     justify-content: center;
     display: flex;
     width: 100%;
@@ -41,13 +44,14 @@
 
 .hclogo {
     font-size: 44px;
-    font-weight: 900;
+    position: fixed;
+    font-weight: bolder;
     color: white;
     text-decoration: none;
     // background: -webkit-linear-gradient(right #cbad6d, 50% #d53369);
     // -webkit-background-clip: text;
     // -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 1em cyan;
+    // text-shadow: 0 0 1em cyan;
     // box-shadow: 0 0 3rem 0em currentColor;
     // border: 3px solid currentColor;
     margin-left: 3%;

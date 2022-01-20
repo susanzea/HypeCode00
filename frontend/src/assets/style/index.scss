@@ -13,16 +13,17 @@ body {
 .pane {
   height: 80%;
   display: flex;
+  margin-bottom: 5vh;
 }
 
 .right-pane {
-  height: 70vh;
+  height: 75vh;
   background-color: hsl(225, 6%, 25%);
   border: 2px solid darkorange;
 }
 
 .left-pane {
-  height: 70vh;
+  height: 75vh;
   border: 2px solid lavender;
 }
 
@@ -35,9 +36,9 @@ iframe {
   flex-basis: 0;
   display: flex;
   flex-direction: column;
-  width: 45vw;
+  width: 35vw;
   padding: .5rem;
-  background-color: hsl(225, 6%, 25%);
+  background-color: transparent;
 }
 
 .editor-title {

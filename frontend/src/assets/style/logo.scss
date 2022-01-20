@@ -1,12 +1,15 @@
+$red: #F82F40;
+$blue: #31CBFD;
+
 
 #blue:hover {
-    color: #F82F40;
-    text-shadow: 0 0 30px #F82F40;
+    color: $blue;
+    text-shadow: 0 0 30px $blue;
 }
 
 #red:hover {
-    color: #31CBFD;
-    text-shadow: 0 0 30px #31CBFD;
+    color: $red;
+    text-shadow: 0 0 30px $red;
 }
 
 #orange:hover {
@@ -57,13 +60,13 @@
 
 
 #blue {
-    color: #F82F40;
-    text-shadow: 5px 5px 40px #31CBFD;
+    color: $blue;
+    text-shadow: 5px 5px 40px $blue;
 }
 
 #red {
-    color: #31CBFD;
-    text-shadow: 5px 5px 40px #F82F40;
+    color: $red;
+    text-shadow: 5px 5px 40px $red;
 }
 
 #orange {

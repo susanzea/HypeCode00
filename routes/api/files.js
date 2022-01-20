@@ -2,8 +2,11 @@ const express = require("express");
 const router = express.Router();
 const File = require("../../models/File")
 const passport = require("passport");
+<<<<<<< HEAD
 var ObjectId = require('mongodb').ObjectId;
 const res = require("express/lib/response");
+=======
+>>>>>>> 8f80eda (fixing crud)
 
 router.get('/', (request,response) => {
 
@@ -46,6 +49,7 @@ router.post('/', passport.authenticate('jwt', { session: false }),
 )
 router.patch('/:id', passport.authenticate('jwt', { session: false }), 
     (request,response) => {
+<<<<<<< HEAD
         File.updateOne({"_id": request.params.id, "user": request.user["id"]}, 
         {$set: {code : request.body.code, name : request.body.name }})    
         .then((res) => response.status(200).json({message: "successfully patched"}))
@@ -76,3 +80,17 @@ module.exports = router;
     // File.deleteOne({"_id": request.params.id, "user": request.user["id"]})
     // .then(() => response.status(200).json({message: "successfully deleted"}))
     // .catch(errors => response.status(400).json({message: "something went wrong"}))
+=======
+        File.updateOne({_id: File.findById(request.params.id)}, {$set: {code : request.body.code, name : request.body.name }})
+    }
+)
+
+router.delete('/:id', passport.authenticate('jwt', {session: false})),
+    (request,response) => {
+        File.deleteOne({_id: File.findById(request.params.id)})
+        .then(() => response.status(200).json({message: "successfully deleted"}))
+        .catch(errors => response.status(400).json({message: "something went wrong"}))
+    }
+
+module.exports = router;
+>>>>>>> 8f80eda (fixing crud)

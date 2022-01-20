@@ -10,7 +10,7 @@ import ProfileContainer from "./profile/profile_container";
 
 const App = () => (
   <div>
-    <NavBarContainer />
+    {/* <NavBarContainer /> */}
     <Switch>
       <Route exact path="/" component={MainPage} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />

@@ -95,7 +95,7 @@ router.get('/:id', (request,response) => {
 })
 
 router.patch("/:id", passport.authenticate('jwt', {session: false}), (request, response) => {
-    User.findOneAndUpdate( {_id : request.params.id }, {$set: {bio : request.body.bio, first_name : request.body.name }})
+    User.findOneAndUpdate( {_id : request.params.id }, {$set: { first_name : request.body.first_name, bio : request.body.bio }})
     .then(user => response.json(user))
     .catch(errors => response.json(errors))
 })

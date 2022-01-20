@@ -1,5 +1,18 @@
-.add-tag {
-    border: 2px solid rgb(238, 234, 234);
+#tag-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-bottom: 10px;
+}
+
+.tag-button {
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    width: 100px;
+    height: 40px;
+    margin: 10px 10px;
 }
 
 .tag-form {

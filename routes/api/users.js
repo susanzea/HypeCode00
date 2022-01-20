@@ -6,7 +6,10 @@ const jwt = require('jsonwebtoken')
 const keys = require('../../config/keys');
 const validateLoginInput = require('../../validation/login')
 const validateSignupInput = require('../../validation/signup');
-const passport = require('passport')
+const passport = require('passport');
+const res = require("express/lib/response");
+const req = require("express/lib/request");
+const { request, response } = require("express");
 
 router.get("/test", (request,response) => response.json({ msg: " Test Route."}))
 
@@ -64,7 +67,7 @@ router.post('/login', (request, response) => {
                         jwt.sign(
                             payload,
                             keys.secretOrKey,
-                            {expiresIn: 3600},
+                            {expiresIn: 36000},
                             (error, token) => {
                                 response.json({
                                     success: true,
@@ -83,6 +86,24 @@ router.get('/current', passport.authenticate('jwt', {session: false}), (req, res
             first_name: req.user.first_name,
             email: req.user.email
         });
+})
+
+router.get('/:id', (request,response) => {
+    User.findById(request.params.id)
+    .then(user => response.json(user))
+    .catch(errors => response.json(errors))
+})
+
+router.patch("/:id", passport.authenticate('jwt', {session: false}), (request, response) => {
+    User.findOneAndUpdate( {_id : request.params.id }, {$set: {bio : request.body.bio, first_name : request.body.name }})
+    .then(user => response.json(user))
+    .catch(errors => response.json(errors))
+})
+
+router.delete("/:id", passport.authenticate('jwt', {session: false}), (request, response) => {
+    User.deleteOne({"_id": request.params.id})
+    .then(user => response.status(400).json({message: "successfully deleted"}))
+    .catch(errors => response.json(errors))
 })
 
 

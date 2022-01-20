@@ -30,6 +30,8 @@ function HomeModal(props) {
 
           
 
+            
+          </div>
           <div className="button-block">
             <button className="exit-button" onClick={props.exitModal}>X</button>
           </div>
@@ -38,7 +40,6 @@ function HomeModal(props) {
           </div>
           
         </div>
-      </div>
 
     )
   }

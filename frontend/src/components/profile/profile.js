@@ -151,7 +151,7 @@ class Profile extends React.Component {
                                             </div>
                                             <div className="file-details">
                                                     <div className="file-id">
-                                                    Id: {file._id}
+                                                    Id: {file._id.slice(4,20)}
                                                     </div>
                                                     <div className="file-content">
                                                     Content: {file.code.slice(0,25)}... <br/>  
@@ -190,7 +190,7 @@ class Profile extends React.Component {
                                 onChange={this.handleInput("code")}
                             />
                             <div className="edit-button-wrapper" id="ebw1">
-                                <button className="profile-button-design"> Submit Edit</button>
+                                <button className="profile-button-design" id="eb1"> Submit Edit</button>
                             </div>
                         </form>
                     </div>
@@ -216,7 +216,7 @@ class Profile extends React.Component {
                             onChange={this.handleInput("bio")}
                         />
                     <div className="edit-button-wrapper" id="ebw1">
-                        <button className="profile-button-design"> Submit Edit </button>
+                        <button className="profile-button-design" id="eb1"> Submit Edit </button>
                     </div>
                     </form>
                     </div>

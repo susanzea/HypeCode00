@@ -29,24 +29,26 @@
     height: 70%;
     gap: 3vh;
     height: 100%;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 .edit-form-container > form > label {
-    font-size: 38px;
+    font-size: 28px;
     text-align: center;
     // height: 100%;
 }
 
 .edit-form-container > form > input {
     height: 8vh;
-    font-size: 28px;
+    font-size: 20px;
     background-color:#253237;
     color: #fff7a8;
     padding-left: 30px;
     padding-right: 30px;
     // border-top-right-radius: 30px ;
     border-bottom-right-radius: 30px;
+    width: 80%;
+    margin-left: 5%;
 }
 .edit-form-container > form > textarea:focus,
 .edit-form-container > form > input:focus {
@@ -55,29 +57,39 @@
 
 
 .edit-form-container > form > textarea {
-    height: 34vh;
+    height: 35%;
     font-size: 28px;
-    max-width: 100%;
-    max-height: 50%;
+    max-width: 80%;
+    min-width: 80%;
+    max-height: 40%;
     background-color: #253237;
     color: #fff7a8;
     padding-left: 30px;
     padding-right: 30px;
     // border-top-right-radius: 30px ;
     border-bottom-right-radius: 30px;
+    font-size: 22px;
+    margin-left: 5%;
 }
 
 #ebw1 {
     justify-self: center;
     // border: springgreen 2px solid;
     align-self: center;
+    position: absolute;
+    bottom: 8%;
+    // width: 50%;
 }
 
 .edit-form-type {
-    font-size: 38px;
+    font-size: 28px;
     align-self: center;
     justify-self: center;
     padding: 20px 20px 10px 20px;
 
     border-bottom: 2px solid yellow;
+}
+
+#eb1 {
+    width: 40%;
 }

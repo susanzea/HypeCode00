@@ -4,7 +4,8 @@
      height: 35px;
      margin-right: 5vw;
      cursor: pointer;
-     min-width: 120px;
+     min-width: 70px;
+    flex: 2;
 }
 
 .download-button:hover > a {
@@ -29,9 +30,9 @@
     align-items: center;
     // flex: 2;
     // width: 45vw;
-    width:90%;
+    // width:90%;
     margin-bottom: 20px;
-    font-size: 22px;
+    font-size: 16px;
     margin-left: 3%;
     height: 4vh;
     min-height: 44px;
@@ -51,10 +52,10 @@
     background: none;
     border: none;
     color: yellow;
-    font-size: 20px;
+    font-size: 16px;
     // width: 40px;
     border-radius: 15px;
-    width: 140px;
+    // width: 140px;
 }
 
 #ucb {
@@ -84,12 +85,12 @@
 }
 
 .file-details{
-    flex: 5;
+    flex: 8;
     // justify-self: center;
     align-self: center;
     border-left: tan 2px solid;
     padding-left: 10px;
-    min-width: 450px;
+    // min-width: 450px;
 }
 
 .file-content {
@@ -106,7 +107,7 @@
     gap: 10px;
 }
 .user-icon{
-    height: 20vh;
+    height: 10vh;
     width: 10vw;
     align-self: center;
 }
@@ -133,7 +134,7 @@
     display: flex;
     width: 70%;
     justify-content: center;
-    height: 50%;
+    height: 30%;
     border: lightblue 2px solid;
     padding: 10px;
     padding-top: 20px;
@@ -142,14 +143,14 @@
     max-height: 400px;
 }
 .about-me {
-    font-size: 40px;
+    font-size: 30px;
     margin-bottom: 20px;
 }
 
 .bio-desc {
     width: 90%;
     height: 100%;
-    font-size: 22px;
+    font-size: 18px;
 }
 
 .left-profile{
@@ -164,15 +165,17 @@
     flex: 3;
     min-height: 80vh;
     border-radius: 20px;
+    width: 30%;
 }
 
 .right-profile {
-    flex: 7;
+    // flex: 6;
     min-height: 80vh;
+    width: 70%;
 }
 
 .right-profile-header{
-    font-size: 38px;
+    font-size: 30px;
     text-align: center;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -200,7 +203,7 @@
     width:  100%;
     color: #fff6a8;
     background-color: transparent;
-    font-size: 38px;
+    font-size: 28px;
     border-radius: 15px;
     border: none;
     font-family: 'Space Mono', monospace;

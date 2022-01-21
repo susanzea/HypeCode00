@@ -326,21 +326,21 @@ class Editor extends React.Component {
                         </div>
 
                         <div id="header-forms">
-                                <form onSubmit={this.appendHeaderOne} className='tag-form' id="headerOne-form">
-                                    {headerOneOpen}<input contentEditable="true" className="tag-input" id="headerOne-input" placeholder='insert header...'></input>{headerOneClose}
-                                    <button type="submit">add tag</button>
+                                <form onSubmit={this.appendHeaderOne} className='tag-form tag-button' id="headerOne-form">
+                                    {headerOneOpen}<input contentEditable="true" className="tag-input" id="headerOne-input"></input>{headerOneClose}
+                                    <button type="submit">add</button>
                                     <button onClick={this.toggleHeader} id="hide-headerOne-form">x</button>
                                 </form>
 
-                                <form onSubmit={this.appendHeaderTwo} className='tag-form' id="headerTwo-form">
-                                    {headerTwoOpen}<span contentEditable="true" className="tag-input" id="headerTwo-input" placeholder='insert header...'></span>{headerTwoClose}
-                                    <button type="submit">add tag</button>
+                                <form onSubmit={this.appendHeaderTwo} className='tag-form tag-button' id="headerTwo-form">
+                                    {headerTwoOpen}<input contentEditable="true" className="tag-input" id="headerTwo-input"></input>{headerTwoClose}
+                                    <button type="submit">add</button>
                                     <button onClick={this.toggleHeader} id="hide-headerTwo-form">x</button>
                                 </form>
 
-                                <form onSubmit={this.appendHeaderThree} className='tag-form' id="headerThree-form">
-                                    {headerThreeOpen}<span contentEditable="true" className="tag-input" id="headerThree-input" placeholder='insert header...'></span>{headerThreeClose}
-                                    <button type="submit">add tag</button>
+                                <form onSubmit={this.appendHeaderThree} className='tag-form tag-button' id="headerThree-form">
+                                    {headerThreeOpen}<input contentEditable="true" className="tag-input" id="headerThree-input"></input>{headerThreeClose}
+                                    <button type="submit">add</button>
                                     <button onClick={this.toggleHeader} id="hide-headerThree-form">x</button>
                                 </form>
                         </div>
@@ -355,15 +355,15 @@ class Editor extends React.Component {
                         </div>
 
                         <div id="list forms">
-                            <form onSubmit={this.appendOrderedList} className='tag-form' id="orderedList-form">
-                                {orderedListOpen}<span contentEditable="true" className="tag-input" id="orderedList-input" placeholder='insert orderedList...'></span>{orderedListClose}
-                                <button type="submit">add tag</button>
+                            <form onSubmit={this.appendOrderedList} className='tag-form tag-button' id="orderedList-form">
+                                {orderedListOpen}<input contentEditable="true" className="tag-input" id="orderedList-input"></input>{orderedListClose}
+                                <button type="submit">add</button>
                                 <button onClick={this.toggleList} id="hide-orderedList-form">x</button>
                             </form>
 
-                            <form onSubmit={this.appendUnorderedList} className='tag-form' id="unorderedList-form">
-                                {unorderedListOpen}<span contentEditable="true" className="tag-input" id="unorderedList-input" placeholder='insert unorderedList...'></span>{unorderedListClose}
-                                <button type="submit">add tag</button>
+                            <form onSubmit={this.appendUnorderedList} className='tag-form tag-button' id="unorderedList-form">
+                                {unorderedListOpen}<input contentEditable="true" className="tag-input" id="unorderedList-input"></input>{unorderedListClose}
+                                <button type="submit">add</button>
                                 <button onClick={this.toggleList} id="hide-unorderedList-form">x</button>
                             </form>
                         </div>
@@ -374,27 +374,27 @@ class Editor extends React.Component {
                 <div id="tags-bottom-row">
                     <div className="add-tag" id="iframe">
                         <button onClick={this.toggleIframe} className='tag-button' id="show-iframe-form">video</button>
-                        <form onSubmit={this.appendIframe} className='tag-form' id="video-form">
-                            {iframeOpen}<span contentEditable="true" className="tag-input" id="image-input" placeholder='insert video link...'></span>{iframeClose}
-                            <button type="submit" id="add-iframe">add tag</button>
+                        <form onSubmit={this.appendIframe} className='tag-form tag-button' id="video-form">
+                            {iframeOpen}<input contentEditable="true" className="tag-input" id="image-input"></input>{iframeClose}
+                            <button type="submit" id="add-iframe">add</button>
                             <button onClick={this.toggleIframe} id="hide-iframe-form">x</button>
                         </form>
                     </div>
 
                     <div className="add-tag" id="image">
                         <button onClick={this.toggleImage} className='tag-button' id="show-image-form">image</button>
-                        <form onSubmit={this.appendImage} className='tag-form' id="image-form">
-                            {imageOpen}<span contentEditable="true" className="tag-input" id="image-input" placeholder='insert image link...'></span>{imageClose}
-                            <button type="submit">add tag</button>
+                        <form onSubmit={this.appendImage} className='tag-form tag-button' id="image-form">
+                            {imageOpen}<input contentEditable="true" className="tag-input" id="image-input"></input>{imageClose}
+                            <button type="submit">add</button>
                             <button onClick={this.toggleImage} id="hide-image-form">x</button>
                         </form>
                     </div>
 
                     <div className="add-tag" id="paragraph">
                         <button onClick={this.toggleParagraph} className='tag-button' id="show-paragraph-form">paragraph</button>
-                        <form onSubmit={this.appendParagraph} className='tag-form' id="paragraph-form">
-                            {paragraphOpen}<span contentEditable="true" className="tag-input" id="paragraph-input" placeholder='insert paragraph link...'></span>{paragraphClose}
-                            <button type="submit">add tag</button>
+                        <form onSubmit={this.appendParagraph} className='tag-form tag-button' id="paragraph-form">
+                            {paragraphOpen}<input contentEditable="true" className="tag-input" id="paragraph-input"></input>{paragraphClose}
+                            <button type="submit">add</button>
                             <button onClick={this.toggleParagraph} id="hide-paragraph-form">x</button>
                         </form>
                     </div>

@@ -26,16 +26,31 @@
 
 
 .tag-form {
-    border: 2px solid lightblue;
+    color: #414a4c;
+    height: 32px;
+    width: fit-content;
+    block-size: fit-content;
+    border: none;
+    font-size: 12px;
+    border-radius: 5px;
+    padding-top: 7px;
+    // padding: 5px 3px;
+}
+
+.tag-form > button {
+    border: none;
+    background-color: transparent;
+    color: white;
 }
 
 .tag-input {
     display: inline-block;
     min-width: 10px;
-    max-width: 80px;
+    max-width: 60px;
     border: 1px solid gray;
     border-radius: 3px;
 }
+
 
 
 
@@ -120,42 +135,81 @@
 
 
 #video-form {
+    height: 24px;
+    width: 230px;
+    background-color: #ec94f4;
     display: none;
+}
+
+#video-form > input {
+    width: 10px;
 }
 
 #image-form {
+    background-color: #fffa00;
+    box-shadow: 0px 0px 5px #FFFD95;
+    height: 24px;
     display: none;
 }
 
+#image-form > input {
+    width: 10px;
+}
+
 #paragraph-form {
+    background-color: #46F200;
+    box-shadow: 0px 0px 5px #B2FA95;
+    height: 24px;
     display: none;
 }
 
 #show-header-forms {
+    height: 24px;
     display: none;
 }
 
 #headerOne-form {
+    height: 24px;
+    color: #414a4c;
+    background-color: #31CBFD;
+    box-shadow: 0px 0px 5px #B1EBFE;
     display: none;
 }
 
 #headerTwo-form {
+    height: 24px;
+    color: #414a4c;
+    background-color: #31CBFD;
+    box-shadow: 0px 0px 5px #B1EBFE;
     display: none;
 }
 
 #headerThree-form {
+    height: 24px;
+    color: #414a4c;
+    background-color: #31CBFD;
+    box-shadow: 0px 0px 5px #B1EBFE;
     display: none;
 }
 
 #show-list-forms {
+    height: 24px;
     display: none;
 }
 
 #orderedList-form {
+    color: #414a4c;
+    background-color: #FBA602;
+    box-shadow: 0px 0px 5px #FDD78E;
+    height: 24px;
     display: none;
 }
 
 #unorderedList-form {
+    color: #414a4c;
+    background-color: #FBA602;
+    box-shadow: 0px 0px 5px #FDD78E;
+    height: 24px;
     display: none;
 }
 
@@ -190,9 +244,3 @@
 
 }
 
-.tag-form {
-    font-size: 12px;
-    border-radius: 3px;
-    height: 32px;
-    padding: 2px;
-}

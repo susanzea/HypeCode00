@@ -1,3 +1,7 @@
+$p1: hsl(317 100% 54%);
+$p2: hsl(323 21% 15%);
+$p3: #13ca91;
+
 .navbar{ 
     display: flex;
     background-color: #1f2023;
@@ -19,9 +23,8 @@
 .nav-right{
     // position: fixed;
     // right: 5px;
-    flex: 1;
-    margin-left: 83%;
-    justify-content: center;
+    flex: 1 1;
+    justify-content: flex-end;
     display: flex;
     width: 100%;
     gap: 10px;
@@ -37,6 +40,10 @@
 .nav-inner-button{
     justify-content: center;
     display: flex;
+}
+
+#dont {
+    display: none;
 }
 .nav-inner-button > a{
     text-decoration: none;
@@ -82,19 +89,60 @@
     width: 100%;
 }
 
-#menulogged{
-    max-width: 120px;
-}
+// #menulogged{
+//     max-width: 120px;
+// }
 
 #login-button,
-#signup-button{
+#signup-button,
+#demo-button {
     margin-top: 6px;;
     font-size: 18px;
     width: 80px;
     height: 25px;
 }
 
-#login-button {
-    margin-left: 5px;
-    margin-right: 0px;
+#demo-button {
+    margin-right: 10px;
+}
+
+
+
+// #demo-button{
+//     margin-top: 6px;
+//     font-size: 18px;
+//     font-family: monospace;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+    
+// }
+
+.menu-icon-demo {
+    // color: $p1;
+    // border: $p3 solid 2px; 
+    cursor: pointer;
+    display: flex;
+    font-size: 30px;
+    padding: 6px;
+    justify-self: center;
+    justify-content: center;
+    overflow: hidden;
+    color: white;
+    text-shadow: 1px 1px 10px #fff, 1px 1px 10px #ccc;
+    padding-top: 11px;
+    background: none;
+    border: none;
+    // box-shadow: 0 0 5px 3px $p3 ;
+    // color: $p3;
+    border-radius: 5px;
+
+}
+
+.menu-icon-demo:hover{
+  color: white;
+  text-shadow: none;
+  background: $p3;
+  box-shadow: 0 0 10px $p3, 0 0 30px $p3, 0 0 40px $p3,0 0 60px $p3;
+  transition: .75s;
 }

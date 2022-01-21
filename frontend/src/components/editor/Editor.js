@@ -402,7 +402,8 @@ class Editor extends React.Component {
 
 
             <div className='editor-title'>
-                {displayName}
+                <p id="editor-lang">{displayName}</p>
+                <button onClick={this.saveCode} id="save">⬇</button>
             </div>
             <ControlledEditor 
                 onBeforeChange={this.handleChange}
@@ -417,7 +418,6 @@ class Editor extends React.Component {
                     theme: 'material'
                 }}
             />
-            <button onClick={this.saveCode}>Save Code</button>
         </div>
     )
     }

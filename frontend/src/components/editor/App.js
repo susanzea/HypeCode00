@@ -71,13 +71,13 @@ function App() {
     <div id="coding-space">
       
       <div className="pane right-pane">
+        <button onClick={clear} id="clear">✖</button>
         <Editor 
           language="xml" 
           displayName="HTML"
           value={html}
           onChange={setHtml}
         />
-        <button onClick={clear} id="clear" >C</button>
       </div>
       <div className="pane left-pane">
         <iframe 

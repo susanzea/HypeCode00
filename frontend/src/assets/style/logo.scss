@@ -5,7 +5,7 @@ $violet: #ec94f4;
 
 #blue:hover {
     color: $blue;
-    text-shadow: 0 0 30px $blue;
+    text-shadow: 0 0 30px #B1EBFE;
 }
 
 #red:hover {
@@ -30,7 +30,7 @@ $violet: #ec94f4;
 
 #fuschia:hover {
     color: $violet;
-    text-shadow: 0 0 30px $violet;
+    text-shadow: 0 0 30px #F5C8F9;
 }
 
 #lightviolet:hover {
@@ -62,7 +62,7 @@ $violet: #ec94f4;
 
 #blue {
     color: $blue;
-    text-shadow: 5px 5px 40px $blue;
+    text-shadow: 5px 5px 40px B1EBFE;
 }
 
 #red {
@@ -82,12 +82,12 @@ $violet: #ec94f4;
 
 #violet {
     color: #1620E9;
-    text-shadow: 5px 5px 40px #1620E9;
+    text-shadow: 5px 5px 30px #C7C9FA;
 }
 
 #fuschia {
     color: $violet;
-    text-shadow: 5px 5px 40px $violet;
+    text-shadow: 5px 5px 40px #F5C8F9;
 }
 
 #lightviolet {

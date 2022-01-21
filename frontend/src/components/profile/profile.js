@@ -31,12 +31,13 @@ class Profile extends React.Component {
         e.preventDefault();
         const code = this.state.code
         const name = this.state.name
-        const id = this.state.id
-        this.props.updateFile(id,code,name)
+        const user_id = this.state.user_id
+        this.props.updateFile(user_id,code,name)
         // setTimeout(() => {
         //     this.setState({edited:false})
         // }, 10);
         // this.props.history.push("/myprofile")
+        // debugger
         window.location.reload()
     }
     

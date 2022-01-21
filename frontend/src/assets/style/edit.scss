@@ -1,0 +1,83 @@
+.edit-form{
+    margin-top: 120px;
+    display: flex;
+    justify-content: center;
+}
+
+.edit-form-container {
+    width: 40%;
+    align-self: center;
+    justify-self: center;
+    border: 3px white solid;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: #747576 0 0 3em;
+    border-radius: 30px;
+}
+
+.edit-form-container > form {
+    // border: red 2px solid;
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    align-content: center;
+    text-align: center;
+    width: 90%;
+    margin-left: 5%;
+    // margin-top: 5%;  
+    height: 70%;
+    gap: 3vh;
+    height: 100%;
+    margin-top: 10px;
+}
+
+.edit-form-container > form > label {
+    font-size: 38px;
+    text-align: center;
+    // height: 100%;
+}
+
+.edit-form-container > form > input {
+    height: 8vh;
+    font-size: 28px;
+    background-color:#253237;
+    color: #fff7a8;
+    padding-left: 30px;
+    padding-right: 30px;
+    // border-top-right-radius: 30px ;
+    border-bottom-right-radius: 30px;
+}
+.edit-form-container > form > textarea:focus,
+.edit-form-container > form > input:focus {
+    outline: none;
+}
+
+
+.edit-form-container > form > textarea {
+    height: 34vh;
+    font-size: 28px;
+    max-width: 100%;
+    max-height: 50%;
+    background-color: #253237;
+    color: #fff7a8;
+    padding-left: 30px;
+    padding-right: 30px;
+    // border-top-right-radius: 30px ;
+    border-bottom-right-radius: 30px;
+}
+
+#ebw1 {
+    justify-self: center;
+    // border: springgreen 2px solid;
+    align-self: center;
+}
+
+.edit-form-type {
+    font-size: 38px;
+    align-self: center;
+    justify-self: center;
+    padding: 20px 20px 10px 20px;
+
+    border-bottom: 2px solid yellow;
+}

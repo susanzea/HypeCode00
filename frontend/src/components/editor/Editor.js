@@ -48,7 +48,9 @@ class Editor extends React.Component {
     saveCode(){
         const value = this.state.editor.getValue();
         console.log(value)
-        this.props.createFile({code:value})
+        if (this.props.currentUser) {
+            this.props.createFile({code:value})
+        }
         // debugger
         var textFileAsBlob = new Blob([value], {
             type: "text/plain;charset=utf-8"
@@ -426,7 +428,7 @@ class Editor extends React.Component {
 // export default Editor;
 
 const mSTP = (state) => ({
-
+    currentUser: state.session.currentUser
 })
 
 const mDTP = dispatch => ({

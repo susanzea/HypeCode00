@@ -1,13 +1,25 @@
 .download-button{
-    border: 2px solid white;
-     width: 80px;
-     height: 30px;
+    // border: 2px solid white;
+     width: 120px;
+     height: 35px;
      margin-right: 5vw;
+     cursor: pointer;
+     min-width: 120px;
+}
 
+.download-button:hover > a {
+    color: #93E9BE;
 }
 
 .download-button > a {
-   
+    color: #a9d3f1;
+    text-shadow: 
+    0 0 7px #a9d3f1,
+    0 0 10px #a9d3f1;
+    width: 100%;
+    text-decoration: none;
+    border-bottom: navajowhite 2px solid;
+    cursor: pointer;
 }
 
 .file-item{
@@ -15,19 +27,73 @@
     justify-content: center;
     margin-top: 10px;
     align-items: center;
-    flex: 3;
-    width: 50vw;
+    // flex: 2;
+    // width: 45vw;
+    width:90%;
+    margin-bottom: 20px;
+    font-size: 22px;
+    margin-left: 3%;
+    height: 4vh;
+    min-height: 44px;
 }
 
-.file-button{
+.file-buttons{
+    display: flex;
     margin-left: 8px;
-    flex: 2;
+    flex: 1;
+    height: 100%;
+    gap: 10px;
+}
+
+.file-button {
+    cursor: pointer;
+    height: 100%;
+    background: none;
+    border: none;
+    color: yellow;
+    font-size: 20px;
+    // width: 40px;
+    border-radius: 15px;
+    width: 140px;
+}
+
+#ucb {
+    color: #fff6a8;
+    text-shadow: 1px 1px 10px yellow, 1px 1px 10px #ccc;
+    
+}
+#dcb {
+    color: #ff6666;
+    text-shadow: 1px 1px 10px red, 1px 1px 10px #ccc;
+}
+
+#ucb:hover {
+    color: black;
+    text-shadow: none;
+    background-color: #fff7a8;
+    transition: ease-in .5s;
+    box-shadow: 0 0 10px #FFFFA7, 0 0 30px #FFFFA7, 0 0 40px #FFFFA7,0 0 60px #FFFFA7;
+}
+
+#dcb:hover {
+    color: black;
+    text-shadow: none;
+    background-color: #ff6666;
+    transition: ease-in .5s;
+    box-shadow: 0 0 10px red, 0 0 30px #ccc;
 }
 
 .file-details{
-    flex: 4;
+    flex: 5;
     // justify-self: center;
     align-self: center;
+    border-left: tan 2px solid;
+    padding-left: 10px;
+    min-width: 450px;
+}
+
+.file-content {
+    color: #7cd7c2
 }
 
 .profile-container{
@@ -36,7 +102,8 @@
     justify-content: space-between;
     width: 80%;
     margin-left: 10%;
-    border: solid 2px wheat
+    // border: solid 2px wheat
+    gap: 10px;
 }
 .user-icon{
     height: 20vh;
@@ -45,6 +112,7 @@
 }
 
 .icon-container{
+    margin-top: 20px;
     display: flex;
     width: 100%;
     justify-content: center;
@@ -57,10 +125,31 @@
     text-align: center;
 }
 
+.user-name{
+    font-size: 40px; 
+}
+
 .bio-container{
     display: flex;
-    width: 80%;
+    width: 70%;
     justify-content: center;
+    height: 50%;
+    border: lightblue 2px solid;
+    padding: 10px;
+    padding-top: 20px;
+    border-radius: 30px;
+    text-align: center;
+    max-height: 400px;
+}
+.about-me {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.bio-desc {
+    width: 90%;
+    height: 100%;
+    font-size: 22px;
 }
 
 .left-profile{
@@ -70,5 +159,65 @@
     // justify-content: center;
     align-items: center;
     gap: 20px;
-    color:gray
+    color: #fdcbfc;
+    // text-shadow: 2px 2px 3px yellow;
+    flex: 3;
+    min-height: 80vh;
+    border-radius: 20px;
+}
+
+.right-profile {
+    flex: 7;
+    min-height: 80vh;
+}
+
+.right-profile-header{
+    font-size: 38px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: cyan;
+}
+
+.right-profile-content{
+    border: cyan 2px solid;
+    height: 100%;
+    border-radius: 20px;
+    width: 100%;
+}
+
+
+.edit-button-wrapper{
+    width: 50%;
+    // border: 3px greenyellow solid;
+    height: 6vh;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.profile-button-design{
+    height: 100%;
+    width:  100%;
+    color: #fff6a8;
+    background-color: transparent;
+    font-size: 38px;
+    border-radius: 15px;
+    border: none;
+    font-family: 'Space Mono', monospace;
+    text-shadow: 1px 1px 10px yellow, 1px 1px 10px #ccc;
+    cursor: pointer;
+}
+
+.edit-button-wrapper:hover {
+    color:white;
+    border-radius: 10px;
+    transition: ease-in .75s;
+}
+
+.profile-button-design:hover {
+    color: black;
+    text-shadow: none;
+    background-color: #fff7a8;
+    transition: ease-in .5s;
+    box-shadow: 0 0 10px #FFFFA7, 0 0 30px #FFFFA7, 0 0 40px #FFFFA7,0 0 60px #FFFFA7;
 }

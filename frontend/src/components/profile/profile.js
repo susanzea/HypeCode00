@@ -31,12 +31,13 @@ class Profile extends React.Component {
         e.preventDefault();
         const code = this.state.code
         const name = this.state.name
-        const id = this.state.id
-        this.props.updateFile(id,code,name)
+        const user_id = this.state.user_id
+        this.props.updateFile(user_id,code,name)
         // setTimeout(() => {
         //     this.setState({edited:false})
         // }, 10);
         // this.props.history.push("/myprofile")
+        // debugger
         window.location.reload()
     }
     
@@ -106,51 +107,65 @@ class Profile extends React.Component {
 
     render() {
         if (!this.props.files) return null
+        if (!this.props.user) return null
         // debugger
         if (!this.state.edited && !this.state.editbio) {
             return (
                 <div className="profile-container" style={{color: "green", fontSize: "26px"}} >
-                <div className="left-profile">
-                    <div className="icon-container">
-                        <FaRegUserCircle className="user-icon" />
-                    </div>
-                    
-                    <div className="profile-name">
-                        <div className="user-name">
-                            Hello, this is {this.props.user.first_name}'s profile
+                    <div className="left-profile">
+                        <div className="icon-container">
+                            <FaRegUserCircle className="user-icon" />
+                        </div>
+                        
+                        <div className="profile-name">
+                            <div className="user-name">
+                                {this.props.user.first_name}
+                            </div>
+                        </div>
+                        <div className="bio-container">
+                            <div className="bio-desc">
+                                <div className="about-me">
+                                    About me:
+                                </div>
+                                {this.props.user.bio}    
+                            </div>
+                        </div>
+                        <div className="edit-button-wrapper">
+                            <button onClick={() => this.handleBioClick()} className="profile-button-design"> Edit Bio </button>
                         </div>
                     </div>
-                    <div className="bio-container">
-                        {this.props.user.bio}
-                        <br />
-                        <button onClick={() => this.handleBioClick()}> Edit Bio </button>
-                    </div>
-                </div>
 
-                    <div style={{color: "red", fontSize: "16px"}}> 
-                        Here are your solutions to previous problems!
-                        <div>
-                           
-                            <ul>
-                            {
-                                Object.values(this.props.files).map( file => (
-                                    
-                                    <li className="file-item" key={file._id}>
-                                        <div className="download-button" onClick={() => this.saveCode(file.code)}> 
-                                            <Link to='#'>{file.name.slice(0, 8)}</Link>
-                                        </div>
-                                        <div className="file-details">
-                                        File Content:{file.code.slice(0,25)}... <br/>  
-                                              File Id: {file._id} <br/>
-                                        </div>
-                                        <div className="file-buttons">
-                                            <button className="file-button" onClick={() => this.handleUpdateClick(file)}>update file</button>
-                                            <button className="file-button" onClick={() => this.handleDelete(file)}>delete file</button>
-                                        </div>
-                                    </li>
-                                ))
-                            }
-                            </ul>
+                    <div className="right-profile" style={{color: "#E1EF7E", fontSize: "16px"}}> 
+                        <div className="right-profile-content">
+                            <div className="right-profile-header">
+                                Previously saved files:
+                            </div>
+                            <div>
+                                <ul>
+                                {
+                                    Object.values(this.props.files).map( file => (
+                                        
+                                        <li className="file-item" key={file._id}>
+                                            <div className="download-button" onClick={() => this.saveCode(file.code)}> 
+                                                <Link to='#'>{file.name.slice(0, 12)}</Link>
+                                            </div>
+                                            <div className="file-details">
+                                                    <div className="file-id">
+                                                    Id: {file._id}
+                                                    </div>
+                                                    <div className="file-content">
+                                                    Content: {file.code.slice(0,25)}... <br/>  
+                                                    </div>
+                                            </div>
+                                            <div className="file-buttons">
+                                                <button className="file-button" id="ucb" onClick={() => this.handleUpdateClick(file)}>UPDATE FILE</button>
+                                                <button className="file-button" id="dcb" onClick={() => this.handleDelete(file)}>DELETE FILE</button>
+                                            </div>
+                                        </li>
+                                    ))
+                                }
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -158,42 +173,53 @@ class Profile extends React.Component {
         } else if (this.state.edited) {
             // debugger
             return (
-                <div style={{color: "red", fontSize: "16px"}}>
-                    <form onSubmit={this.handleUpdate}>
-                        <label> Name </label>
-                        <input
-                            type="text"
-                            value={this.state.name}
-                            onChange={this.handleInput("name")}
-                        />
-                        <label> Code </label>
-                        <input
-                            type="text"
-                            value={this.state.code}
-                            onChange={this.handleInput("code")}
-                        />
-                        <button> Edit</button>
-                    </form>
+                <div style={{color: "cyan", fontSize: "16px"}} className="edit-form">
+                    <div className="edit-form-container">
+                        <label className="edit-form-type"> File Edit Form </label>
+                        <form onSubmit={this.handleUpdate}>
+                            <label> File Name </label>
+                            <input
+                                type="text"
+                                value={this.state.name}
+                                onChange={this.handleInput("name")}
+                            />
+                            <label> File Code </label>
+                            <textarea
+                                // type="text"
+                                value={this.state.code}
+                                onChange={this.handleInput("code")}
+                            />
+                            <div className="edit-button-wrapper" id="ebw1">
+                                <button className="profile-button-design"> Submit Edit</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             )
         } else if (this.state.editbio && !this.state.edited) {
             return(
-                <div style={{color: "cyan", fontSize: "16px"}}>
+                <div style={{color: "cyan", fontSize: "16px"}} className="edit-form">
+                     <div className="edit-form-container">
+                    <label className="edit-form-type"> File Edit Form </label>
                     <form onSubmit={this.handleBioUpdate}>
-                        <label> Name </label>
+                        
+                        <label> Your Display Name </label>
                         <input
                             type="text"
                             value={this.state.user_name}
                             onChange={this.handleInput("user_name")}
                         />
-                        <label> Bio </label>
-                        <input
-                            type="text"
+                        <label> Your Bio </label>
+                        <textarea
+                            // type="text"
                             value={this.state.bio}
                             onChange={this.handleInput("bio")}
                         />
-                        <button> Edit Bio </button>
+                    <div className="edit-button-wrapper" id="ebw1">
+                        <button className="profile-button-design"> Submit Edit </button>
+                    </div>
                     </form>
+                    </div>
                 </div>
             )}
     }

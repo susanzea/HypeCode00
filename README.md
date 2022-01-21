@@ -1,11 +1,11 @@
 [HypeCode Live Link](https://www.hypecode.herokuapp.com)
 
 
-* Background
+# Background
 
 HypeCode is a coding environment where a user learns html by clicking buttons that render HTML.  It familiarizes the user with HTML conceptually before       introducing syntax. HypeCode features a text editor accompanied with buttons that auto populate an HTML tag on click.  To the left of the editor, there is an iframe that renders the compiled code from the editor.  Users can save HTML files and download them from their profile page for external use in software like vs code.
 
-* Technologies Used:
+# Technologies Used:
 
 The frontend for HypeCode was built using react.  Redux was used to keep track of 	global state.  We used MongoDB to store files, users, profiles, and the current session.
 

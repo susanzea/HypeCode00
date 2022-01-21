@@ -32,8 +32,8 @@ class Menu extends React.Component {
     menuItems(){
         return(
             <div className="menu-item">
-                <Link to={'/myprofile'} className="menu-button">{this.props.currentUser.first_name}'s Profile</Link>
-                <Link className="menu-button" onClick={this.props.logout}>Log out</Link>
+                <Link to={'/myprofile'} className="menu-button">My Profile</Link>
+                <Link to={'#'} className="menu-button" onClick={this.props.logout}>Log out</Link>
             </div> )
     }
 

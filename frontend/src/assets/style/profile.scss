@@ -4,6 +4,7 @@
      height: 35px;
      margin-right: 5vw;
      cursor: pointer;
+     min-width: 120px;
 }
 
 .download-button:hover > a {
@@ -86,6 +87,7 @@
     align-self: center;
     border-left: tan 2px solid;
     padding-left: 10px;
+    min-width: 450px;
 }
 
 .file-content {

@@ -166,7 +166,8 @@
 #show-headerOne-form, 
 #show-headerTwo-form,
 #show-headerThree-form {
-    font-size: 14px;
+    font-size: 18px;
+    font-weight: lighter;
     width: 80px;
     color: #414a4c;
     background-color: #31CBFD;
@@ -174,4 +175,21 @@
     margin-right: 2px;
     margin-left: 1px;
 
+}
+
+#show-orderedList-form, 
+#show-unorderedList-form {
+    font-size: 18px;
+    font-weight: normal;
+    width: 100px;
+    color: #414a4c;
+    background-color: #FBA602;
+    box-shadow: 0px 0px 5px #FDD78E;
+    margin-right: 2px;
+    margin-left: 1px;
+
+}
+
+.tag-form {
+    border-radius: 3px;
 }

@@ -123,6 +123,9 @@ class Profile extends React.Component {
                         </div>
                         <div className="bio-container">
                             <div className="bio-desc">
+                                <div className="about-me">
+                                    About me:
+                                </div>
                                 {this.props.user.bio}    
                             </div>
                         </div>
@@ -154,8 +157,8 @@ class Profile extends React.Component {
                                                     </div>
                                             </div>
                                             <div className="file-buttons">
-                                                <button className="file-button" onClick={() => this.handleUpdateClick(file)}>update file</button>
-                                                <button className="file-button" onClick={() => this.handleDelete(file)}>delete file</button>
+                                                <button className="file-button" id="ucb" onClick={() => this.handleUpdateClick(file)}>UPDATE FILE</button>
+                                                <button className="file-button" id="dcb" onClick={() => this.handleDelete(file)}>DELETE FILE</button>
                                             </div>
                                         </li>
                                     ))

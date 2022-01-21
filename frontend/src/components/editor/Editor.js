@@ -325,19 +325,19 @@ class Editor extends React.Component {
 
                         <div id="header-forms">
                                 <form onSubmit={this.appendHeaderOne} className='tag-form' id="headerOne-form">
-                                    {headerOneOpen}<span contentEditable="true" className="tag-input" id="headerOne-input" placeholder='insert headerOne link...'></span>{headerOneClose}
+                                    {headerOneOpen}<input contentEditable="true" className="tag-input" id="headerOne-input" placeholder='insert header...'></input>{headerOneClose}
                                     <button type="submit">add tag</button>
                                     <button onClick={this.toggleHeader} id="hide-headerOne-form">x</button>
                                 </form>
 
                                 <form onSubmit={this.appendHeaderTwo} className='tag-form' id="headerTwo-form">
-                                    {headerTwoOpen}<span contentEditable="true" className="tag-input" id="headerTwo-input" placeholder='insert headerTwo link...'></span>{headerTwoClose}
+                                    {headerTwoOpen}<span contentEditable="true" className="tag-input" id="headerTwo-input" placeholder='insert header...'></span>{headerTwoClose}
                                     <button type="submit">add tag</button>
                                     <button onClick={this.toggleHeader} id="hide-headerTwo-form">x</button>
                                 </form>
 
                                 <form onSubmit={this.appendHeaderThree} className='tag-form' id="headerThree-form">
-                                    {headerThreeOpen}<span contentEditable="true" className="tag-input" id="headerThree-input" placeholder='insert headerThree link...'></span>{headerThreeClose}
+                                    {headerThreeOpen}<span contentEditable="true" className="tag-input" id="headerThree-input" placeholder='insert header...'></span>{headerThreeClose}
                                     <button type="submit">add tag</button>
                                     <button onClick={this.toggleHeader} id="hide-headerThree-form">x</button>
                                 </form>
@@ -402,7 +402,8 @@ class Editor extends React.Component {
 
 
             <div className='editor-title'>
-                {displayName}
+                <p id="editor-lang">{displayName}</p>
+                <button onClick={this.saveCode} id="save">⬇</button>
             </div>
             <ControlledEditor 
                 onBeforeChange={this.handleChange}
@@ -417,7 +418,6 @@ class Editor extends React.Component {
                     theme: 'material'
                 }}
             />
-            <button onClick={this.saveCode}>Save Code</button>
         </div>
     )
     }

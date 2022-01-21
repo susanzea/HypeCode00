@@ -38,3 +38,29 @@ Colorized uses dynamic DOM manipulation to highlight the rendered result of a pi
 The main challenge in accomplishing this was finding a way to break conventional highlighting structures. Usually, the tag name, content, and attributes categories are each given an individual color. We aimed to make it so that each HTML element and it's rendered output was highlighted in a single color since a brand new coder would likely be confused by more nuanced highlighting. 
 
 We accomplished this by using jquery to parse our code to look for tags and then color them accordingly. The colorized function was run for each html tag that is featured in HypeCode's main page coding environment. 
+
+
+### Saving User Files
+```js
+saveCode(){
+        const value = this.state.editor.getValue();
+        if(this.props.currentUser){
+            this.props.createFile({code:value})
+        }
+        const textFileAsBlob = new Blob([value], {
+            type: "text/plain;charset=utf-8"
+        });
+        const fileNameToSaveAs = "myfile.txt";
+        const downloadLink = document.createElement("a");
+        downloadLink.download = fileNameToSaveAs;
+        if (window.webkitURL != null) {
+            downloadLink.href = window.webkitURL.createObjectURL(textFileAsBlob);
+        } else {
+            downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+        }
+        downloadLink.click();
+    }
+ ```
+CHALLENGE: Saving a file to the database from frontend to backend that someone can access when they are logged in. Also, allowing a user to download the file they had saved in the database.
+
+Solution:  First we checked if the user is logged in, once they saved the code we would create an object containing the code. We would then send through axios to mongodb and create a new object in the database using their Id and default values. The user can then rename the file through their profile and also update their code. The user will also be able to click the file name and the file and will be downloaded from the profile. 

@@ -172,42 +172,53 @@ class Profile extends React.Component {
         } else if (this.state.edited) {
             // debugger
             return (
-                <div style={{color: "red", fontSize: "16px"}}>
-                    <form onSubmit={this.handleUpdate}>
-                        <label> Name </label>
-                        <input
-                            type="text"
-                            value={this.state.name}
-                            onChange={this.handleInput("name")}
-                        />
-                        <label> Code </label>
-                        <input
-                            type="text"
-                            value={this.state.code}
-                            onChange={this.handleInput("code")}
-                        />
-                        <button> Edit</button>
-                    </form>
+                <div style={{color: "cyan", fontSize: "16px"}} className="edit-form">
+                    <div className="edit-form-container">
+                        <label className="edit-form-type"> File Edit Form </label>
+                        <form onSubmit={this.handleUpdate}>
+                            <label> File Name </label>
+                            <input
+                                type="text"
+                                value={this.state.name}
+                                onChange={this.handleInput("name")}
+                            />
+                            <label> File Code </label>
+                            <textarea
+                                // type="text"
+                                value={this.state.code}
+                                onChange={this.handleInput("code")}
+                            />
+                            <div className="edit-button-wrapper" id="ebw1">
+                                <button className="profile-button-design"> Submit Edit</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             )
         } else if (this.state.editbio && !this.state.edited) {
             return(
-                <div style={{color: "cyan", fontSize: "16px"}}>
+                <div style={{color: "cyan", fontSize: "16px"}} className="edit-form">
+                     <div className="edit-form-container">
+                    <label className="edit-form-type"> File Edit Form </label>
                     <form onSubmit={this.handleBioUpdate}>
-                        <label> Name </label>
+                        
+                        <label> Your Display Name </label>
                         <input
                             type="text"
                             value={this.state.user_name}
                             onChange={this.handleInput("user_name")}
                         />
-                        <label> Bio </label>
-                        <input
-                            type="text"
+                        <label> Your Bio </label>
+                        <textarea
+                            // type="text"
                             value={this.state.bio}
                             onChange={this.handleInput("bio")}
                         />
-                        <button> Edit Bio </button>
+                    <div className="edit-button-wrapper" id="ebw1">
+                        <button className="profile-button-design"> Submit Edit </button>
+                    </div>
                     </form>
+                    </div>
                 </div>
             )}
     }

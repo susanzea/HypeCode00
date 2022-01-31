@@ -106,7 +106,10 @@ class Editor extends React.Component {
     }
 
     appendImage(e) {
-        const content = e.target.childNodes[1].innerText
+        debugger
+        const content = $("#image-input").val()
+        debugger
+        // const content = e.target.childNodes[1].innerText
         var doc = this.state.editor.getDoc();
         var cursor = doc.getCursor(); // gets the line number in the cursor position
         var line = doc.getLine(cursor.line); // get the line contents
@@ -134,7 +137,8 @@ class Editor extends React.Component {
     }
 
     appendHeaderOne(e) {
-        const content = e.target.childNodes[1].innerText
+        const content = $("#headerOne-input").val()
+        // const content = e.target.childNodes[1].innerText
         var doc = this.state.editor.getDoc();
         var cursor = doc.getCursor(); // gets the line number in the cursor position
         var line = doc.getLine(cursor.line); // get the line contents
@@ -144,7 +148,8 @@ class Editor extends React.Component {
             ch: line.length// set the character position to the end of the line
         }
         doc.replaceRange(`<h1>${content}</h1>\n`, pos); // adds a new line
-        e.target.childNodes[1].innerText = ""
+        $("#headerOne-input").val("")
+        // e.target.childNodes[1].innerText = ""
     }
 
     appendHeaderTwo(e) {
@@ -375,7 +380,7 @@ class Editor extends React.Component {
                     <div className="add-tag" id="iframe">
                         <button onClick={this.toggleIframe} className='tag-button' id="show-iframe-form">video</button>
                         <form onSubmit={this.appendIframe} className='tag-form tag-button' id="video-form">
-                            {iframeOpen}<input contentEditable="true" className="tag-input" id="image-input"></input>{iframeClose}
+                            {iframeOpen}<input contentEditable="true" className="tag-input" id="iframe-input"></input>{iframeClose}
                             <button type="submit" id="add-iframe">add</button>
                             <button onClick={this.toggleIframe} id="hide-iframe-form">x</button>
                         </form>
@@ -384,8 +389,8 @@ class Editor extends React.Component {
                     <div className="add-tag" id="image">
                         <button onClick={this.toggleImage} className='tag-button' id="show-image-form">image</button>
                         <form onSubmit={this.appendImage} className='tag-form tag-button' id="image-form">
-                            {imageOpen}<input contentEditable="true" className="tag-input" id="image-input"></input>{imageClose}
-                            <button type="submit">add</button>
+                            {imageOpen}<input className="tag-input" id="image-input"></input>{imageClose}
+                            <button type="submit" onClick={this.appendImage} >add</button>
                             <button onClick={this.toggleImage} id="hide-image-form">x</button>
                         </form>
                     </div>

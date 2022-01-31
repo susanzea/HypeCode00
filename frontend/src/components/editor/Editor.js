@@ -14,6 +14,7 @@ import {highlightActiveLine} from "@codemirror/view"
 import keyword from './keywords';
 import { connect } from 'react-redux'
 import { fetchFile, createFile } from '../../actions/file_actions';
+import {h1, h2, h3} from './element_skeletons';
 
 
 var $ = require("jquery");
@@ -77,17 +78,19 @@ class Editor extends React.Component {
         this.props.onChange(value);
     }
 
-    append() {
-
+    append(tag, inputSelector) {
+        debugger
+        const content = $(inputSelector).val()
         var doc = this.state.editor.getDoc();
         var cursor = doc.getCursor(); // gets the line number in the cursor position
         var line = doc.getLine(cursor.line); // get the line contents
-        console.log(line)
         var pos = { // create a new object to avoid mutation of the original selection
             line: cursor.line,
             ch: line.length// set the character position to the end of the line
         }
-        doc.replaceRange('<h1>my new line of code</h1>\n', pos); // adds a new line
+        debugger
+        doc.replaceRange(tag(content), pos); // adds a new line
+        $(inputSelector).val("")
     }
 
 
@@ -147,13 +150,14 @@ class Editor extends React.Component {
             line: cursor.line,
             ch: line.length// set the character position to the end of the line
         }
-        doc.replaceRange(`<h1>${content}</h1>\n`, pos); // adds a new line
+        debugger
+        doc.replaceRange(h1(content), pos); // adds a new line
         $("#headerOne-input").val("")
         // e.target.childNodes[1].innerText = ""
     }
 
     appendHeaderTwo(e) {
-        const content = e.target.childNodes[1].innerText
+        const content = $("#headerTwo-input").val()
         var doc = this.state.editor.getDoc();
         var cursor = doc.getCursor(); // gets the line number in the cursor position
         var line = doc.getLine(cursor.line); // get the line contents
@@ -163,12 +167,12 @@ class Editor extends React.Component {
             ch: line.length// set the character position to the end of the line
         }
         doc.replaceRange(`<h2>${content}</h2>\n`, pos); // adds a new line
-        e.target.childNodes[1].innerText = ""
+        $("#headerTwo-input").val("")
     }
 
     appendHeaderThree(e) {
         // debugger
-        const content = e.target.childNodes[1].innerText
+        const content = $("#headerThree-input").val()
         var doc = this.state.editor.getDoc();
         var cursor = doc.getCursor(); // gets the line number in the cursor position
         var line = doc.getLine(cursor.line); // get the line contents
@@ -178,7 +182,7 @@ class Editor extends React.Component {
             ch: line.length// set the character position to the end of the line
         }
         doc.replaceRange(`<h3>${content}</h3>\n`, pos); // adds a new line
-        e.target.childNodes[1].innerText = ""
+        $("#headerThree-input").val("")
     }
 
     appendOrderedList(e) {
@@ -331,19 +335,19 @@ class Editor extends React.Component {
                         </div>
 
                         <div id="header-forms">
-                                <form onSubmit={this.appendHeaderOne} className='tag-form tag-button' id="headerOne-form">
+                                <form onSubmit={() => this.append(h1, "#headerOne-input")} className='tag-form tag-button' id="headerOne-form">
                                     {headerOneOpen}<input contentEditable="true" className="tag-input" id="headerOne-input"></input>{headerOneClose}
                                     <button type="submit">add</button>
                                     <button onClick={this.toggleHeader} id="hide-headerOne-form">x</button>
                                 </form>
 
-                                <form onSubmit={this.appendHeaderTwo} className='tag-form tag-button' id="headerTwo-form">
+                                <form onSubmit={() => this.append(h2, "#headerTwo-input")} className='tag-form tag-button' id="headerTwo-form">
                                     {headerTwoOpen}<input contentEditable="true" className="tag-input" id="headerTwo-input"></input>{headerTwoClose}
                                     <button type="submit">add</button>
                                     <button onClick={this.toggleHeader} id="hide-headerTwo-form">x</button>
                                 </form>
 
-                                <form onSubmit={this.appendHeaderThree} className='tag-form tag-button' id="headerThree-form">
+                                <form onSubmit={() => this.append(h3, "#headerThree-input")} className='tag-form tag-button' id="headerThree-form">
                                     {headerThreeOpen}<input contentEditable="true" className="tag-input" id="headerThree-input"></input>{headerThreeClose}
                                     <button type="submit">add</button>
                                     <button onClick={this.toggleHeader} id="hide-headerThree-form">x</button>

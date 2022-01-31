@@ -43,6 +43,7 @@ class NavBar extends React.Component {
       )
     } else {
       let pathname = this.props.location.pathname;
+      
       if (pathname === '/signup') {
         return (
           <div className="nav-right">

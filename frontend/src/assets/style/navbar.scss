@@ -72,7 +72,7 @@ $p3: #13ca91;
 
 .hclogo:hover {
     // color: wheat;
-    transition: all 1s linear;
+    // transition: all 1s linear;
     // text-shadow: 0 0 3em cyan;
     // background: -webkit-linear-gradient (#cbad6d, #d53369);
     // -webkit-background-clip: text;
@@ -80,14 +80,14 @@ $p3: #13ca91;
     // position: absolute;;
 }
 
-.hclogo:before {
-    position: absolute;
-    width: 0;
-}
+// .hclogo:before {
+//     position: absolute;
+//     width: 0;
+// }
 
-.hclogo:hover::before{
-    width: 100%;
-}
+// .hclogo:hover::before{
+//     width: 100%;
+// }
 
 // #menulogged{
 //     max-width: 120px;

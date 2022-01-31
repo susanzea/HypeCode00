@@ -11,5 +11,6 @@
 @import './tag_buttons.scss';
 @import './profile.scss';
 @import '../../components/modals/home-modal.scss';
-
 @import './edit.scss';
+@import 'codemirror/lib/codemirror.css';
+@import 'codemirror/theme/material.css';

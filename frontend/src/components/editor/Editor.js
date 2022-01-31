@@ -1,9 +1,9 @@
 import React from 'react';
 import { useEffect } from 'react';
 //gives us access to all of the css we'll be putting on editos
-import 'codemirror/lib/codemirror.css'
+// import 'codemirror/lib/codemirror.css'
 //gives us access to all of the themes we'll be putting on editos
-import 'codemirror/theme/material.css'
+// import 'codemirror/theme/material.css'
 //languages
 import 'codemirror/mode/xml/xml'
 import 'codemirror/mode/javascript/javascript'

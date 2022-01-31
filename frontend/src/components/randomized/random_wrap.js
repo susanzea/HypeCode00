@@ -1,6 +1,6 @@
 import React from "react";
 import RandomEle from "./random_ele";
-import "./randomized.scss"
+// import "./randomized.scss"
 class RandomWrap extends React.Component {
   constructor(props) {
     super(props);

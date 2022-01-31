@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom';
-import '../../assets/style/main.scss'
+// import '../../assets/style/main.scss'
 import MenuContainer from "../menu/menu_container";
 
 var $ = require("jquery");

@@ -1,6 +1,6 @@
 import React from "react";
 import HomeModal from "../modals/home_modal"
-import "./main.scss"
+// import "./main.scss"
 import Editor from '../editor/App'
 
 class MainPage extends React.Component {

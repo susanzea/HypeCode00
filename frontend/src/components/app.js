@@ -1,4 +1,5 @@
 import React from "react";
+import '../assets/style/main.scss'
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import { Route, Switch } from 'react-router-dom';
 import NavBarContainer from './navbar/navbar_container';

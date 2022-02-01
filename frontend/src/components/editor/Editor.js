@@ -34,9 +34,9 @@ class Editor extends React.Component {
         this.appendIframe = this.appendIframe.bind(this);
         this.appendImage = this.appendImage.bind(this);
         this.appendParagraph = this.appendParagraph.bind(this);
-        this.appendHeaderOne = this.appendHeaderOne.bind(this);
-        this.appendHeaderTwo = this.appendHeaderTwo.bind(this);
-        this.appendHeaderThree = this.appendHeaderThree.bind(this);
+        // this.appendHeaderOne = this.appendHeaderOne.bind(this);
+        // this.appendHeaderTwo = this.appendHeaderTwo.bind(this);
+        // this.appendHeaderThree = this.appendHeaderThree.bind(this);
         this.appendOrderedList = this.appendOrderedList.bind(this);
         this.appendUnorderedList = this.appendUnorderedList.bind(this);
         this.toggleIframe = this.toggleIframe.bind(this);
@@ -139,51 +139,51 @@ class Editor extends React.Component {
         e.target.childNodes[1].innerText = ""
     }
 
-    appendHeaderOne(e) {
-        const content = $("#headerOne-input").val()
-        // const content = e.target.childNodes[1].innerText
-        var doc = this.state.editor.getDoc();
-        var cursor = doc.getCursor(); // gets the line number in the cursor position
-        var line = doc.getLine(cursor.line); // get the line contents
-        console.log(line)
-        var pos = { // create a new object to avoid mutation of the original selection
-            line: cursor.line,
-            ch: line.length// set the character position to the end of the line
-        }
-        debugger
-        doc.replaceRange(h1(content), pos); // adds a new line
-        $("#headerOne-input").val("")
-        // e.target.childNodes[1].innerText = ""
-    }
+    // appendHeaderOne(e) {
+    //     const content = $("#headerOne-input").val()
+    //     // const content = e.target.childNodes[1].innerText
+    //     var doc = this.state.editor.getDoc();
+    //     var cursor = doc.getCursor(); // gets the line number in the cursor position
+    //     var line = doc.getLine(cursor.line); // get the line contents
+    //     console.log(line)
+    //     var pos = { // create a new object to avoid mutation of the original selection
+    //         line: cursor.line,
+    //         ch: line.length// set the character position to the end of the line
+    //     }
+    //     debugger
+    //     doc.replaceRange(h1(content), pos); // adds a new line
+    //     $("#headerOne-input").val("")
+    //     // e.target.childNodes[1].innerText = ""
+    // }
 
-    appendHeaderTwo(e) {
-        const content = $("#headerTwo-input").val()
-        var doc = this.state.editor.getDoc();
-        var cursor = doc.getCursor(); // gets the line number in the cursor position
-        var line = doc.getLine(cursor.line); // get the line contents
-        console.log(line)
-        var pos = { // create a new object to avoid mutation of the original selection
-            line: cursor.line,
-            ch: line.length// set the character position to the end of the line
-        }
-        doc.replaceRange(`<h2>${content}</h2>\n`, pos); // adds a new line
-        $("#headerTwo-input").val("")
-    }
+    // appendHeaderTwo(e) {
+    //     const content = $("#headerTwo-input").val()
+    //     var doc = this.state.editor.getDoc();
+    //     var cursor = doc.getCursor(); // gets the line number in the cursor position
+    //     var line = doc.getLine(cursor.line); // get the line contents
+    //     console.log(line)
+    //     var pos = { // create a new object to avoid mutation of the original selection
+    //         line: cursor.line,
+    //         ch: line.length// set the character position to the end of the line
+    //     }
+    //     doc.replaceRange(`<h2>${content}</h2>\n`, pos); // adds a new line
+    //     $("#headerTwo-input").val("")
+    // }
 
-    appendHeaderThree(e) {
-        // debugger
-        const content = $("#headerThree-input").val()
-        var doc = this.state.editor.getDoc();
-        var cursor = doc.getCursor(); // gets the line number in the cursor position
-        var line = doc.getLine(cursor.line); // get the line contents
-        console.log(line)
-        var pos = { // create a new object to avoid mutation of the original selection
-            line: cursor.line,
-            ch: line.length// set the character position to the end of the line
-        }
-        doc.replaceRange(`<h3>${content}</h3>\n`, pos); // adds a new line
-        $("#headerThree-input").val("")
-    }
+    // appendHeaderThree(e) {
+    //     // debugger
+    //     const content = $("#headerThree-input").val()
+    //     var doc = this.state.editor.getDoc();
+    //     var cursor = doc.getCursor(); // gets the line number in the cursor position
+    //     var line = doc.getLine(cursor.line); // get the line contents
+    //     console.log(line)
+    //     var pos = { // create a new object to avoid mutation of the original selection
+    //         line: cursor.line,
+    //         ch: line.length// set the character position to the end of the line
+    //     }
+    //     doc.replaceRange(`<h3>${content}</h3>\n`, pos); // adds a new line
+    //     $("#headerThree-input").val("")
+    // }
 
     appendOrderedList(e) {
         const content = e.target.childNodes[1].innerText

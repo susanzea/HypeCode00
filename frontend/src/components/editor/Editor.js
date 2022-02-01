@@ -37,7 +37,7 @@ class Editor extends React.Component {
         var textFileAsBlob = new Blob([value], {
             type: "text/plain;charset=utf-8"
         });
-        var fileNameToSaveAs = "myfile.txt";
+        var fileNameToSaveAs = "myfile.html";
 
         var downloadLink = document.createElement("a");
         downloadLink.download = fileNameToSaveAs;

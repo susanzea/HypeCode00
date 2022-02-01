@@ -22,8 +22,8 @@ class NavBar extends React.Component {
 
   loginDemoUser(e) {
     this.props.loginAction({
-      email: "demo_user@gmail.com",
-      password: "password",
+      email: "demo@user.com",
+      password: "123456",
     })
   }
 

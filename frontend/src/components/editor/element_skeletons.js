@@ -13,7 +13,7 @@ export const h3 = (innertext) => {
 
 export const iframe = (video_link) => {
     const video_id = video_link.slice(-11)
-    return `<iframe width="504" height="378" src="https://www.youtube.com/embed/${video_id}"></iframe>\n`
+    return `<iframe width="504px" height="378px" src="https://www.youtube.com/embed/${video_id}"></iframe>\n`
 }
 
 export const img = (image_link) => {

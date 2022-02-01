@@ -9,27 +9,40 @@ justify-content: space-evenly;
 
 .about-item{
     display: flex;
+    margin-top: 2%;
+    padding: 25px;
+    color: white;
+    height: 70vh;
+    width: 20vw;
     
     flex-direction: column;
     justify-content: center;
-
-    img{
-        height: 400px;
-        width: 280px;
-    }
-    h3{
-        font-size: 25px;
-        color: white;
-        font-weight: bold;
-        margin-bottom: 5px;
-    }
-
-    p{
-        color: white;
-        font-family: 'Space Mono', monospace;
-
-    }
 }
+
+.about-item > img{
+    height: 100%;
+    width: 75%;
+    min-height: 200px;
+    min-width: 150px;
+    border-radius: 3px;
+    object-fit: cover;
+    border: 1px solid rgba(172, 172, 172, 0.74);
+    box-shadow: #747576 0 0 1.5em;
+}
+.about-name > h3{
+    // font-size: 35px;
+    font-size: 2vw;
+    // color: white;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.about-item > p{
+    // color: white;
+    font-family: 'Space Mono', monospace;
+
+}
+
 .about-name{
     margin-top: 10px;
     margin-bottom: 5px;
@@ -41,13 +54,20 @@ justify-content: space-evenly;
     display: flex;
     justify-content: space-evenly;
     a{
-        color: white;
+        // color: white;
         font-weight: lighter;
     }
 
     p{
         
     }
+}
+
+
+#susan:hover {
+    color: black;
+    background-color: #31CBFD;
+    border-radius: 3px;
 }
 
 .about-bio{

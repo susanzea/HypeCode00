@@ -1,22 +1,11 @@
 import React from 'react';
-import { useEffect } from 'react';
-//gives us access to all of the css we'll be putting on editos
-// import 'codemirror/lib/codemirror.css'
-//gives us access to all of the themes we'll be putting on editos
-// import 'codemirror/theme/material.css'
-//languages
 import 'codemirror/mode/xml/xml'
 import 'codemirror/mode/javascript/javascript'
 import 'codemirror/mode/css/css'
-//editor being imported
 import { Controlled as ControlledEditor } from 'react-codemirror2';
-import {highlightActiveLine} from "@codemirror/view"
-import keyword from './keywords';
 import { connect } from 'react-redux'
 import { fetchFile, createFile } from '../../actions/file_actions';
 import {h1, h2, h3, iframe, img, p, ol, ul} from './element_skeletons';
-
-
 var $ = require("jquery");
 
 
@@ -31,14 +20,6 @@ class Editor extends React.Component {
         this.handleChange = this.handleChange.bind(this);
         this.append = this.append.bind(this);
         this.setEditor = this.setEditor.bind(this)
-        // this.appendIframe = this.appendIframe.bind(this);
-        // this.appendImage = this.appendImage.bind(this);
-        // this.appendParagraph = this.appendParagraph.bind(this);
-        // this.appendHeaderOne = this.appendHeaderOne.bind(this);
-        // this.appendHeaderTwo = this.appendHeaderTwo.bind(this);
-        // this.appendHeaderThree = this.appendHeaderThree.bind(this);
-        // this.appendOrderedList = this.appendOrderedList.bind(this);
-        // this.appendUnorderedList = this.appendUnorderedList.bind(this);
         this.toggleIframe = this.toggleIframe.bind(this);
         this.toggleImage = this.toggleImage.bind(this);
         this.toggleParagraph = this.toggleParagraph.bind(this);
@@ -92,126 +73,6 @@ class Editor extends React.Component {
         doc.replaceRange(tag(content), pos); // adds a new line
         $(inputSelector).val("")
     }
-
-
-    // appendIframe(e) {
-    //     const content = e.target.childNodes[1].innerText.slice(-11)
-    //     var doc = this.state.editor.getDoc();
-    //     var cursor = doc.getCursor(); // gets the line number in the cursor position
-    //     var line = doc.getLine(cursor.line); // get the line contents
-    //     console.log(line)
-    //     var pos = { // create a new object to avoid mutation of the original selection
-    //         line: cursor.line,
-    //         ch: line.length// set the character position to the end of the line
-    //     }
-    //     doc.replaceRange(`<iframe width="504" height="378" src="https://www.youtube.com/embed/${content}"></iframe>`, pos); // adds a new line
-    //     e.target.childNodes[1].innerText = ""
-    // }
-
-    // appendImage(e) {
-    //     debugger
-    //     const content = $("#image-input").val()
-    //     debugger
-    //     // const content = e.target.childNodes[1].innerText
-    //     var doc = this.state.editor.getDoc();
-    //     var cursor = doc.getCursor(); // gets the line number in the cursor position
-    //     var line = doc.getLine(cursor.line); // get the line contents
-    //     console.log(line)
-    //     var pos = { // create a new object to avoid mutation of the original selection
-    //         line: cursor.line,
-    //         ch: line.length// set the character position to the end of the line
-    //     }
-    //     doc.replaceRange(`<img src="${content}">\n`, pos); // adds a new line
-    //     e.target.childNodes[1].innerText = ""
-    // }
-
-    // appendParagraph(e) {
-    //     const content = e.target.childNodes[1].innerText
-    //     var doc = this.state.editor.getDoc();
-    //     var cursor = doc.getCursor(); // gets the line number in the cursor position
-    //     var line = doc.getLine(cursor.line); // get the line contents
-    //     console.log(line)
-    //     var pos = { // create a new object to avoid mutation of the original selection
-    //         line: cursor.line,
-    //         ch: line.length// set the character position to the end of the line
-    //     }
-    //     doc.replaceRange(`<p>${content}</p>\n`, pos); // adds a new line
-    //     e.target.childNodes[1].innerText = ""
-    // }
-
-    // appendHeaderOne(e) {
-    //     const content = $("#headerOne-input").val()
-    //     // const content = e.target.childNodes[1].innerText
-    //     var doc = this.state.editor.getDoc();
-    //     var cursor = doc.getCursor(); // gets the line number in the cursor position
-    //     var line = doc.getLine(cursor.line); // get the line contents
-    //     console.log(line)
-    //     var pos = { // create a new object to avoid mutation of the original selection
-    //         line: cursor.line,
-    //         ch: line.length// set the character position to the end of the line
-    //     }
-    //     debugger
-    //     doc.replaceRange(h1(content), pos); // adds a new line
-    //     $("#headerOne-input").val("")
-    //     // e.target.childNodes[1].innerText = ""
-    // }
-
-    // appendHeaderTwo(e) {
-    //     const content = $("#headerTwo-input").val()
-    //     var doc = this.state.editor.getDoc();
-    //     var cursor = doc.getCursor(); // gets the line number in the cursor position
-    //     var line = doc.getLine(cursor.line); // get the line contents
-    //     console.log(line)
-    //     var pos = { // create a new object to avoid mutation of the original selection
-    //         line: cursor.line,
-    //         ch: line.length// set the character position to the end of the line
-    //     }
-    //     doc.replaceRange(`<h2>${content}</h2>\n`, pos); // adds a new line
-    //     $("#headerTwo-input").val("")
-    // }
-
-    // appendHeaderThree(e) {
-    //     // debugger
-    //     const content = $("#headerThree-input").val()
-    //     var doc = this.state.editor.getDoc();
-    //     var cursor = doc.getCursor(); // gets the line number in the cursor position
-    //     var line = doc.getLine(cursor.line); // get the line contents
-    //     console.log(line)
-    //     var pos = { // create a new object to avoid mutation of the original selection
-    //         line: cursor.line,
-    //         ch: line.length// set the character position to the end of the line
-    //     }
-    //     doc.replaceRange(`<h3>${content}</h3>\n`, pos); // adds a new line
-    //     $("#headerThree-input").val("")
-    // }
-
-    // appendOrderedList(e) {
-    //     const content = e.target.childNodes[1].innerText
-    //     var doc = this.state.editor.getDoc();
-    //     var cursor = doc.getCursor(); // gets the line number in the cursor position
-    //     var line = doc.getLine(cursor.line); // get the line contents
-    //     console.log(line)
-    //     var pos = { // create a new object to avoid mutation of the original selection
-    //         line: cursor.line,
-    //         ch: line.length// set the character position to the end of the line
-    //     }
-    //     doc.replaceRange(`<ol>\n   <li>${content}</li>\n</ol>\n`, pos); // adds a new line
-    //     e.target.childNodes[1].innerText = ""
-    // }
-
-    // appendUnorderedList(e) {
-    //     const content = e.target.childNodes[1].innerText
-    //     var doc = this.state.editor.getDoc();
-    //     var cursor = doc.getCursor(); // gets the line number in the cursor position
-    //     var line = doc.getLine(cursor.line); // get the line contents
-    //     console.log(line)
-    //     var pos = { // create a new object to avoid mutation of the original selection
-    //         line: cursor.line,
-    //         ch: line.length// set the character position to the end of the line
-    //     }
-    //     doc.replaceRange(`<ul>\n   <li>${content}</li>\n</ul>\n`, pos); // adds a new line
-    //     e.target.childNodes[1].innerText = ""
-    // }
 
     toggleIframe(e) {
         e.preventDefault();

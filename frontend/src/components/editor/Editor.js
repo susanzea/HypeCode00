@@ -425,7 +425,7 @@ class Editor extends React.Component {
                     linewrapping: true,
                     lint: true,
                     mode: language,
-                    lineNumbers: true,
+                    lineNumbers: false,
                     theme: 'material'
                 }}
             />

@@ -14,7 +14,7 @@ import {highlightActiveLine} from "@codemirror/view"
 import keyword from './keywords';
 import { connect } from 'react-redux'
 import { fetchFile, createFile } from '../../actions/file_actions';
-import {h1, h2, h3} from './element_skeletons';
+import {h1, h2, h3, iframe, img, p, ol, ul} from './element_skeletons';
 
 
 var $ = require("jquery");
@@ -31,14 +31,14 @@ class Editor extends React.Component {
         this.handleChange = this.handleChange.bind(this);
         this.append = this.append.bind(this);
         this.setEditor = this.setEditor.bind(this)
-        this.appendIframe = this.appendIframe.bind(this);
-        this.appendImage = this.appendImage.bind(this);
-        this.appendParagraph = this.appendParagraph.bind(this);
+        // this.appendIframe = this.appendIframe.bind(this);
+        // this.appendImage = this.appendImage.bind(this);
+        // this.appendParagraph = this.appendParagraph.bind(this);
         // this.appendHeaderOne = this.appendHeaderOne.bind(this);
         // this.appendHeaderTwo = this.appendHeaderTwo.bind(this);
         // this.appendHeaderThree = this.appendHeaderThree.bind(this);
-        this.appendOrderedList = this.appendOrderedList.bind(this);
-        this.appendUnorderedList = this.appendUnorderedList.bind(this);
+        // this.appendOrderedList = this.appendOrderedList.bind(this);
+        // this.appendUnorderedList = this.appendUnorderedList.bind(this);
         this.toggleIframe = this.toggleIframe.bind(this);
         this.toggleImage = this.toggleImage.bind(this);
         this.toggleParagraph = this.toggleParagraph.bind(this);
@@ -94,50 +94,50 @@ class Editor extends React.Component {
     }
 
 
-    appendIframe(e) {
-        const content = e.target.childNodes[1].innerText.slice(-11)
-        var doc = this.state.editor.getDoc();
-        var cursor = doc.getCursor(); // gets the line number in the cursor position
-        var line = doc.getLine(cursor.line); // get the line contents
-        console.log(line)
-        var pos = { // create a new object to avoid mutation of the original selection
-            line: cursor.line,
-            ch: line.length// set the character position to the end of the line
-        }
-        doc.replaceRange(`<iframe width="504" height="378" src="https://www.youtube.com/embed/${content}"></iframe>`, pos); // adds a new line
-        e.target.childNodes[1].innerText = ""
-    }
+    // appendIframe(e) {
+    //     const content = e.target.childNodes[1].innerText.slice(-11)
+    //     var doc = this.state.editor.getDoc();
+    //     var cursor = doc.getCursor(); // gets the line number in the cursor position
+    //     var line = doc.getLine(cursor.line); // get the line contents
+    //     console.log(line)
+    //     var pos = { // create a new object to avoid mutation of the original selection
+    //         line: cursor.line,
+    //         ch: line.length// set the character position to the end of the line
+    //     }
+    //     doc.replaceRange(`<iframe width="504" height="378" src="https://www.youtube.com/embed/${content}"></iframe>`, pos); // adds a new line
+    //     e.target.childNodes[1].innerText = ""
+    // }
 
-    appendImage(e) {
-        debugger
-        const content = $("#image-input").val()
-        debugger
-        // const content = e.target.childNodes[1].innerText
-        var doc = this.state.editor.getDoc();
-        var cursor = doc.getCursor(); // gets the line number in the cursor position
-        var line = doc.getLine(cursor.line); // get the line contents
-        console.log(line)
-        var pos = { // create a new object to avoid mutation of the original selection
-            line: cursor.line,
-            ch: line.length// set the character position to the end of the line
-        }
-        doc.replaceRange(`<img src="${content}">\n`, pos); // adds a new line
-        e.target.childNodes[1].innerText = ""
-    }
+    // appendImage(e) {
+    //     debugger
+    //     const content = $("#image-input").val()
+    //     debugger
+    //     // const content = e.target.childNodes[1].innerText
+    //     var doc = this.state.editor.getDoc();
+    //     var cursor = doc.getCursor(); // gets the line number in the cursor position
+    //     var line = doc.getLine(cursor.line); // get the line contents
+    //     console.log(line)
+    //     var pos = { // create a new object to avoid mutation of the original selection
+    //         line: cursor.line,
+    //         ch: line.length// set the character position to the end of the line
+    //     }
+    //     doc.replaceRange(`<img src="${content}">\n`, pos); // adds a new line
+    //     e.target.childNodes[1].innerText = ""
+    // }
 
-    appendParagraph(e) {
-        const content = e.target.childNodes[1].innerText
-        var doc = this.state.editor.getDoc();
-        var cursor = doc.getCursor(); // gets the line number in the cursor position
-        var line = doc.getLine(cursor.line); // get the line contents
-        console.log(line)
-        var pos = { // create a new object to avoid mutation of the original selection
-            line: cursor.line,
-            ch: line.length// set the character position to the end of the line
-        }
-        doc.replaceRange(`<p>${content}</p>\n`, pos); // adds a new line
-        e.target.childNodes[1].innerText = ""
-    }
+    // appendParagraph(e) {
+    //     const content = e.target.childNodes[1].innerText
+    //     var doc = this.state.editor.getDoc();
+    //     var cursor = doc.getCursor(); // gets the line number in the cursor position
+    //     var line = doc.getLine(cursor.line); // get the line contents
+    //     console.log(line)
+    //     var pos = { // create a new object to avoid mutation of the original selection
+    //         line: cursor.line,
+    //         ch: line.length// set the character position to the end of the line
+    //     }
+    //     doc.replaceRange(`<p>${content}</p>\n`, pos); // adds a new line
+    //     e.target.childNodes[1].innerText = ""
+    // }
 
     // appendHeaderOne(e) {
     //     const content = $("#headerOne-input").val()
@@ -185,33 +185,33 @@ class Editor extends React.Component {
     //     $("#headerThree-input").val("")
     // }
 
-    appendOrderedList(e) {
-        const content = e.target.childNodes[1].innerText
-        var doc = this.state.editor.getDoc();
-        var cursor = doc.getCursor(); // gets the line number in the cursor position
-        var line = doc.getLine(cursor.line); // get the line contents
-        console.log(line)
-        var pos = { // create a new object to avoid mutation of the original selection
-            line: cursor.line,
-            ch: line.length// set the character position to the end of the line
-        }
-        doc.replaceRange(`<ol>\n   <li>${content}</li>\n</ol>\n`, pos); // adds a new line
-        e.target.childNodes[1].innerText = ""
-    }
+    // appendOrderedList(e) {
+    //     const content = e.target.childNodes[1].innerText
+    //     var doc = this.state.editor.getDoc();
+    //     var cursor = doc.getCursor(); // gets the line number in the cursor position
+    //     var line = doc.getLine(cursor.line); // get the line contents
+    //     console.log(line)
+    //     var pos = { // create a new object to avoid mutation of the original selection
+    //         line: cursor.line,
+    //         ch: line.length// set the character position to the end of the line
+    //     }
+    //     doc.replaceRange(`<ol>\n   <li>${content}</li>\n</ol>\n`, pos); // adds a new line
+    //     e.target.childNodes[1].innerText = ""
+    // }
 
-    appendUnorderedList(e) {
-        const content = e.target.childNodes[1].innerText
-        var doc = this.state.editor.getDoc();
-        var cursor = doc.getCursor(); // gets the line number in the cursor position
-        var line = doc.getLine(cursor.line); // get the line contents
-        console.log(line)
-        var pos = { // create a new object to avoid mutation of the original selection
-            line: cursor.line,
-            ch: line.length// set the character position to the end of the line
-        }
-        doc.replaceRange(`<ul>\n   <li>${content}</li>\n</ul>\n`, pos); // adds a new line
-        e.target.childNodes[1].innerText = ""
-    }
+    // appendUnorderedList(e) {
+    //     const content = e.target.childNodes[1].innerText
+    //     var doc = this.state.editor.getDoc();
+    //     var cursor = doc.getCursor(); // gets the line number in the cursor position
+    //     var line = doc.getLine(cursor.line); // get the line contents
+    //     console.log(line)
+    //     var pos = { // create a new object to avoid mutation of the original selection
+    //         line: cursor.line,
+    //         ch: line.length// set the character position to the end of the line
+    //     }
+    //     doc.replaceRange(`<ul>\n   <li>${content}</li>\n</ul>\n`, pos); // adds a new line
+    //     e.target.childNodes[1].innerText = ""
+    // }
 
     toggleIframe(e) {
         e.preventDefault();
@@ -301,8 +301,8 @@ class Editor extends React.Component {
             onChange
         } = this.props
 
-        const iframeOpen = "<video> src='"
-        const iframeClose = "'</video>"
+        const iframeOpen = "<iframe> src='"
+        const iframeClose = "'</iframe>"
         const imageOpen = "<img src='"
         const imageClose = "'>"
         const paragraphOpen = "<p>"
@@ -364,13 +364,13 @@ class Editor extends React.Component {
                         </div>
 
                         <div id="list forms">
-                            <form onSubmit={this.appendOrderedList} className='tag-form tag-button' id="orderedList-form">
+                            <form onSubmit={() => this.append(ol, "#orderedList-input")} className='tag-form tag-button' id="orderedList-form">
                                 {orderedListOpen}<input contentEditable="true" className="tag-input" id="orderedList-input"></input>{orderedListClose}
                                 <button type="submit">add</button>
                                 <button onClick={this.toggleList} id="hide-orderedList-form">x</button>
                             </form>
 
-                            <form onSubmit={this.appendUnorderedList} className='tag-form tag-button' id="unorderedList-form">
+                            <form onSubmit={() => this.append(ul, "#unorderedList-input")} className='tag-form tag-button' id="unorderedList-form">
                                 {unorderedListOpen}<input contentEditable="true" className="tag-input" id="unorderedList-input"></input>{unorderedListClose}
                                 <button type="submit">add</button>
                                 <button onClick={this.toggleList} id="hide-unorderedList-form">x</button>
@@ -383,7 +383,7 @@ class Editor extends React.Component {
                 <div id="tags-bottom-row">
                     <div className="add-tag" id="iframe">
                         <button onClick={this.toggleIframe} className='tag-button' id="show-iframe-form">video</button>
-                        <form onSubmit={this.appendIframe} className='tag-form tag-button' id="video-form">
+                        <form onSubmit={() => this.append(iframe, "#iframe-input")} className='tag-form tag-button' id="video-form">
                             {iframeOpen}<input contentEditable="true" className="tag-input" id="iframe-input"></input>{iframeClose}
                             <button type="submit" id="add-iframe">add</button>
                             <button onClick={this.toggleIframe} id="hide-iframe-form">x</button>
@@ -392,16 +392,16 @@ class Editor extends React.Component {
 
                     <div className="add-tag" id="image">
                         <button onClick={this.toggleImage} className='tag-button' id="show-image-form">image</button>
-                        <form onSubmit={this.appendImage} className='tag-form tag-button' id="image-form">
+                        <form onSubmit={() => this.append(img, "#image-input")} className='tag-form tag-button' id="image-form">
                             {imageOpen}<input className="tag-input" id="image-input"></input>{imageClose}
-                            <button type="submit" onClick={this.appendImage} >add</button>
+                            <button type="submit">add</button>
                             <button onClick={this.toggleImage} id="hide-image-form">x</button>
                         </form>
                     </div>
 
                     <div className="add-tag" id="paragraph">
                         <button onClick={this.toggleParagraph} className='tag-button' id="show-paragraph-form">paragraph</button>
-                        <form onSubmit={this.appendParagraph} className='tag-form tag-button' id="paragraph-form">
+                        <form onSubmit={() => this.append(p, "#paragraph-input")} className='tag-form tag-button' id="paragraph-form">
                             {paragraphOpen}<input contentEditable="true" className="tag-input" id="paragraph-input"></input>{paragraphClose}
                             <button type="submit">add</button>
                             <button onClick={this.toggleParagraph} id="hide-paragraph-form">x</button>

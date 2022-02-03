@@ -9,10 +9,10 @@ justify-content: space-evenly;
 
 .about-item{
     display: flex;
-    margin-top: 2%;
+    margin-top: 1%;
     padding: 25px;
     color: white;
-    height: 70vh;
+    height: 80vh;
     width: 20vw;
     
     flex-direction: column;
@@ -22,6 +22,7 @@ justify-content: space-evenly;
 .about-item > img{
     height: 100%;
     width: 75%;
+    margin-left: 12.5%;
     min-height: 200px;
     min-width: 150px;
     border-radius: 3px;
@@ -54,7 +55,8 @@ justify-content: space-evenly;
     display: flex;
     justify-content: space-evenly;
     a{
-        // color: white;
+        color: rgb(116, 116, 116);
+        text-decoration: none;
         font-weight: lighter;
     }
 
@@ -70,11 +72,29 @@ justify-content: space-evenly;
     border-radius: 3px;
 }
 
+#alex:hover {
+    color: black;
+    background-color: #FBA602;
+    border-radius: 3px;
+}
+
+#steven:hover {
+    color: black;
+    background-color: #aeff30;
+    border-radius: 3px;
+}
+
+#anthony:hover {
+    color: black;
+    background-color: #fffa00;;
+    border-radius: 3px;
+}
+
 .about-bio{
     // border: 4px solid green;
     margin-left: 20px;
     max-width: 250px;
-    height: 180px;
+    height: 260px;
     overflow: hidden;
     // font-size: 30px;
     // font-size: 1vw;

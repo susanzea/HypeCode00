@@ -15,12 +15,12 @@ export default class AboutPage extends React.Component {
                             <h3>Susan Zea</h3>
                         </div>
                         <div className="about-bio">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi nulla nobis nemo aliquid autem possimus ratione. Qui suscipit voluptatum eveniet laborum aperiam non, voluptates consectetur, sit iste fugit nesciunt ad?</p>
+                            <p>Hi👋🏼 I'm a science teacher turned software engineer who's looking for the right place to break into tech. Check out my links to learn more about my work or get in touch.</p>
                         </div>
                         <div className="about-social-links">
-                            <a href="https://github.com/susanzea" target="_blank">Github</a>
-                            <a href="https://www.linkedin.com/in/susanzea/" target="_blank">LinkedIn</a>
-                            <a href="#" target="_blank">Angelist</a>
+                            <a href="https://github.com/susanzea" target="_blank">Github</a>|
+                            <a href="https://www.linkedin.com/in/susanzea/" target="_blank">LinkedIn</a>|
+                            <a href="https://angel.co/u/susan-zea" target="_blank">Angelist</a>
                         </div>
                         
                     </div>
@@ -35,9 +35,9 @@ export default class AboutPage extends React.Component {
  If there’s a puzzle or a bug, I’m already on it!</p>
                         </div>
                         <div className="about-social-links">
-                            <a href="https://github.com/AlexDoes" target="_blank">Github</a>
-                            <a href="https://www.linkedin.com/in/alwong191/" target="_blank">LinkedIn</a>
-                            <a href="#" target="_blank">Angelist</a>
+                            <a href="https://github.com/AlexDoes" target="_blank">Github</a>|
+                            <a href="https://www.linkedin.com/in/alwong191/" target="_blank">LinkedIn</a>|
+                            <a href="https://angel.co/u/awong191" target="_blank">Angelist</a>
                         </div>
                         
                     </div>
@@ -50,24 +50,24 @@ export default class AboutPage extends React.Component {
                             <p>Hello there, I'm Steven, I am a web developer with experience in Ruby on Rails, JavaScript, React, and Redux. I'm passionate about problem solving, debugging, and writing clean, semantic code.</p>
                         </div>
                         <div className="about-social-links">
-                            <a href="https://github.com/StevenSookhai" target="_blank">Github</a>
-                            <a href="https://www.linkedin.com/in/steven-sookhai-37192a22a/" target="_blank">LinkedIn</a>
+                            <a href="https://github.com/StevenSookhai" target="_blank">Github</a>|
+                            <a href="https://www.linkedin.com/in/steven-sookhai-37192a22a/" target="_blank">LinkedIn</a>|
                             <a href="https://angel.co/u/steven-sookhai" target="_blank">Angelist</a>
                         </div>
                         
                     </div>
                     <div className="about-item" id="anthony">
-                        <img src="https://endflix-seeds.s3.amazonaws.com/Kermit_the_Frog.jpeg" alt="" />
+                        <img id="anthony-pic" src="https://avatars.githubusercontent.com/u/91623374?v=4" alt="" />
                         <div className="about-name">
                             <h3>Anthony Carroll</h3>
                         </div>
                         <div className="about-bio">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi nulla nobis nemo aliquid autem possimus ratione. Qui suscipit voluptatum eveniet laborum aperiam non, voluptates consectetur, sit iste fugit nesciunt ad?</p>
+                            <p>My name is Anthony, I’m a full stack engineer. I love working on new ideas and seeing them turn into real applications.</p>
                         </div>
                         <div className="about-social-links">
-                            <a href="https://github.com/tc8appdevelo" target="_blank">Github</a>
-                            <a href="#" target="_blank">LinkedIn</a>
-                            <a href="#" target="_blank">Angelist</a>
+                            <a href="https://github.com/tc8appdevelo" target="_blank">Github</a>|
+                            <a href="https://www.linkedin.com/in/anthony-carroll-996697101/" target="_blank">LinkedIn</a>|
+                            <a href="https://angel.co/u/anthony-carroll-5" target="_blank">Angelist</a>
                         </div>
                         
                     </div>

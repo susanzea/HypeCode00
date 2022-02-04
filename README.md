@@ -1,4 +1,4 @@
-[HypeCode Live Link](https://www.hypecode.herokuapp.com)
+[HypeCode Live Link](http://hypecode.herokuapp.com/)
 
 
 # Background

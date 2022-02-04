@@ -6,16 +6,16 @@
 HypeCode is a coding environment where a user learns html by clicking buttons that render HTML.  It familiarizes the user with HTML conceptually before       introducing syntax. HypeCode features a text editor accompanied with buttons that auto populate an HTML tag on click.  To the left of the editor, there is an iframe that renders the compiled code from the editor.  Users can save HTML files and download them from their profile page for external use in software like vs code.
 
 <!-- <img width="1000" alt="hype-homepage" src="https://user-images.githubusercontent.com/87621185/152572721-9a2fe323-05ee-402f-bbd6-392aa8d7ae4a.png"> -->
+<img width="900" alt="Screen Shot 2022-02-04 at 1 33 18 PM" src="https://user-images.githubusercontent.com/87621185/152583932-54db2513-c90a-4433-8567-1ea57c1ce28b.png">
 
-### Check out the CRUD cycle for html files in the video below!
-[![Watch the video](https://img.youtube.com/vi/998rsSMw2mQ/maxresdefault.jpg)](https://www.youtube.com/watch?v=998rsSMw2mQ)
 
 # Technologies Used:
-
 The frontend for HypeCode was built using react.  Redux was used to keep track of global state.  We used MongoDB to store files, users, profiles, and the current session.
 
 # Challenging Features
-### Customized Code Highlighting
+## Customized Code Highlighting
+<img width="900" alt="Screen Shot 2022-02-04 at 1 09 37 PM" src="https://user-images.githubusercontent.com/87621185/152580787-a9351ad0-7372-4101-85bb-f9349b21f60c.png">
+
 ```js
   export const colorize = (tagName, color) => {
       const ele = document.getElementById("rendering-iframe")
@@ -45,7 +45,7 @@ The main challenge in accomplishing this was finding a way to break conventional
 We accomplished this by using jquery to parse our code to look for tags and then color them accordingly. The colorized function was run for each html tag that is featured in HypeCode's main page coding environment. 
 
 
-### Saving User Files
+## Saving User Files
 ```js
 saveCode(){
         const value = this.state.editor.getValue();
@@ -69,3 +69,7 @@ saveCode(){
 CHALLENGE: Saving a file to the database from frontend to backend that someone can access when they are logged in. Also, allowing a user to download the file they had saved in the database.
 
 Solution:  First we checked if the user is logged in, once they saved the code we would create an object containing the code. We would then send through axios to mongodb and create a new object in the database using their Id and default values. The user can then rename the file through their profile and also update their code. The user will also be able to click the file name and the file and will be downloaded from the profile. 
+
+### Check out the CRUD cycle for html files in the video below!
+[![Watch the video](https://img.youtube.com/vi/998rsSMw2mQ/maxresdefault.jpg)](https://www.youtube.com/watch?v=998rsSMw2mQ)
+
